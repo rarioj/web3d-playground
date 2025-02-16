@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web3D Playground</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/simpledotcss/simple.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="./index.html" id="nav-apps">Apps</a>
+        <a href="./index.html?readme=1" id="nav-readme">Readme</a>
+        <a href="./index.html?notes=1" id="nav-notes">Notes</a>
+      </nav>
+    </header>
+    <main></main>
+    <footer>
+      Converted from a markdown file into HTML on the fly using
+      <a href="https://showdownjs.com/" target="_blank">Showdown.js</a> and
+      styled with
+      <a href="https://simplecss.org/" target="_blank">Simple.css</a>.
+    </footer>
+    <script>
+      (async () => {
+        const header = document.getElementsByTagName("header")[0];
+        const content = document.getElementsByTagName("main")[0];
+        const footer = document.getElementsByTagName("footer")[0];
+        const query = Object.fromEntries(new URL(location).searchParams);
+
+        let mdfile;
+        if (query?.readme) {
+          mdfile = "./README.md";
+          document.getElementById("nav-readme").classList.add("current");
+        } else if (query?.notes) {
+          mdfile = "./NOTES.md";
+          document.getElementById("nav-notes").classList.add("current");
+        } else {
+          mdfile = "./APPS.md";
+          document.getElementById("nav-apps").classList.add("current");
+        }
+
+        const fetchMarkdown = async (file) => {
+          const converter = new showdown.Converter({
+            openLinksInNewWindow: true,
+            tables: true,
+          });
+          const response = await fetch(file);
+          if (!response.ok || response.status !== 200) {
+            console.error("Unable to fetch file");
+          }
+          const text = await response.text();
+          return converter.makeHtml(text);
+        };
+
+        content.innerHTML = await fetchMarkdown(mdfile);
+
+        const title = document.getElementsByTagName("h1")[0];
+        document.title = title.innerText;
+        header.appendChild(title);
+      })();
+    </script>
+  </body>
+</html>

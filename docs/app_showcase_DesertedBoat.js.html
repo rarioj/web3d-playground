@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="en" style="font-size:16px"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Source: app/showcase/DesertedBoat.js</title><!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--><script src="scripts/third-party/hljs.js" defer="defer"></script><script src="scripts/third-party/hljs-line-num.js" defer="defer"></script><script src="scripts/third-party/popper.js" defer="defer"></script><script src="scripts/third-party/tippy.js" defer="defer"></script><script src="scripts/third-party/tocbot.min.js"></script><script>var baseURL="/",locationPathname="";baseURL=(locationPathname=document.location.pathname).substr(0,locationPathname.lastIndexOf("/")+1)</script><link rel="stylesheet" href="styles/clean-jsdoc-theme.min.css"><svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none"><defs><symbol id="copy-icon" viewbox="0 0 488.3 488.3"><g><path d="M314.25,85.4h-227c-21.3,0-38.6,17.3-38.6,38.6v325.7c0,21.3,17.3,38.6,38.6,38.6h227c21.3,0,38.6-17.3,38.6-38.6V124    C352.75,102.7,335.45,85.4,314.25,85.4z M325.75,449.6c0,6.4-5.2,11.6-11.6,11.6h-227c-6.4,0-11.6-5.2-11.6-11.6V124    c0-6.4,5.2-11.6,11.6-11.6h227c6.4,0,11.6,5.2,11.6,11.6V449.6z"/><path d="M401.05,0h-227c-21.3,0-38.6,17.3-38.6,38.6c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5c0-6.4,5.2-11.6,11.6-11.6h227    c6.4,0,11.6,5.2,11.6,11.6v325.7c0,6.4-5.2,11.6-11.6,11.6c-7.5,0-13.5,6-13.5,13.5s6,13.5,13.5,13.5c21.3,0,38.6-17.3,38.6-38.6    V38.6C439.65,17.3,422.35,0,401.05,0z"/></g></symbol><symbol id="search-icon" viewBox="0 0 512 512"><g><g><path d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474    c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323    c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848    S326.847,409.323,225.474,409.323z"/></g></g><g><g><path d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328    c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z"/></g></g></symbol><symbol id="font-size-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11.246 15H4.754l-2 5H.6L7 4h2l6.4 16h-2.154l-2-5zm-.8-2L8 6.885 5.554 13h4.892zM21 12.535V12h2v8h-2v-.535a4 4 0 1 1 0-6.93zM19 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></symbol><symbol id="add-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></symbol><symbol id="minus-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M5 11h14v2H5z"/></symbol><symbol id="dark-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol><symbol id="light-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol><symbol id="reset-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795z"/></symbol><symbol id="down-icon" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></symbol><symbol id="codepen-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.5 13.202L13 15.535v3.596L19.197 15 16.5 13.202zM14.697 12L12 10.202 9.303 12 12 13.798 14.697 12zM20 10.869L18.303 12 20 13.131V10.87zM19.197 9L13 4.869v3.596l3.5 2.333L19.197 9zM7.5 10.798L11 8.465V4.869L4.803 9 7.5 10.798zM4.803 15L11 19.131v-3.596l-3.5-2.333L4.803 15zM4 13.131L5.697 12 4 10.869v2.262zM2 9a1 1 0 0 1 .445-.832l9-6a1 1 0 0 1 1.11 0l9 6A1 1 0 0 1 22 9v6a1 1 0 0 1-.445.832l-9 6a1 1 0 0 1-1.11 0l-9-6A1 1 0 0 1 2 15V9z"/></symbol><symbol id="close-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></symbol><symbol id="menu-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></symbol></defs></svg></head><body data-theme="dark"><div class="sidebar-container"><div class="sidebar" id="sidebar"><div class="sidebar-items-container"><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-modules"><div>Modules</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-App.html">App</a></div><div class="sidebar-section-children"><a href="module-Screen.html">Screen</a></div><div class="sidebar-section-children"><a href="module-System.html">System</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-classes"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-App.DesertedBoat.html">DesertedBoat</a></div><div class="sidebar-section-children"><a href="module-App.MeshParticles.html">MeshParticles</a></div><div class="sidebar-section-children"><a href="module-App.PangramGenerator.html">PangramGenerator</a></div><div class="sidebar-section-children"><a href="module-App.RotatingBox.html">RotatingBox</a></div><div class="sidebar-section-children"><a href="module-App.StoneMonument.html">StoneMonument</a></div><div class="sidebar-section-children"><a href="module-App.ValentinesDay.html">ValentinesDay</a></div><div class="sidebar-section-children"><a href="module-Screen.WebGL.html">WebGL</a></div><div class="sidebar-section-children"><a href="module-Screen.WebGLPerspectiveOrbit.html">WebGLPerspectiveOrbit</a></div><div class="sidebar-section-children"><a href="module-System.Alert.html">Alert</a></div><div class="sidebar-section-children"><a href="module-System.DebugGUI.html">DebugGUI</a></div><div class="sidebar-section-children"><a href="module-System.DebugStats.html">DebugStats</a></div><div class="sidebar-section-children"><a href="module-System.Loader.html">Loader</a></div><div class="sidebar-section-children"><a href="module-System.SkyCube.html">SkyCube</a></div><div class="sidebar-section-children"><a href="module-System.WaterPlanar.html">WaterPlanar</a></div></div></div></div></div><div class="navbar-container" id="VuAckcnZhf"><nav class="navbar"><div class="navbar-left-items"></div><div class="navbar-right-items"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#light-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div><nav></nav></nav></div><div class="toc-container"><div class="toc-content"><span class="bold">On this page</span><div id="eed4d2a0bfd64539bb9df78095dec881"></div></div></div><div class="body-wrapper"><div class="main-content"><div class="main-wrapper"><section id="source-page" class="source-page"><header><h1 id="title" class="has-anchor">app_showcase_DesertedBoat.js</h1></header><article><pre class="prettyprint source lang-js"><code>import {
+  BoxGeometry,
+  CircleGeometry,
+  Color,
+  CylinderGeometry,
+  DoubleSide,
+  FogExp2,
+  Group,
+  LatheGeometry,
+  Mesh,
+  MeshStandardMaterial,
+  NoToneMapping,
+  Path,
+  PlaneGeometry,
+  RepeatWrapping,
+  ShaderMaterial,
+  SRGBColorSpace,
+  Vector2,
+} from "three";
+import WebGLPerspectiveOrbit from "../../screen/webgl/WebGLPerspectiveOrbit.js";
+import Loader from "../../system/utility/Loader.js";
+import WaterPlanar from "../../system/component/WaterPlanar.js";
+import SkyCube from "../../system/component/SkyCube.js";
+
+/**
+ * Another implementation of basic geometries with standard textured materials.
+ *    The flag is simple vertex/fragment shaders written in GLSL. The
+ *    ocean/water effect is more advanced shaders.
+ * @memberof module:App
+ * @extends module:Screen.WebGLPerspectiveOrbit
+ */
+class DesertedBoat extends WebGLPerspectiveOrbit {
+  /**
+   * App options override.
+   * @type {Object}
+   * @static
+   */
+  static options = {
+    cameraPerspectiveFov: 45,
+    cameraPerspectiveFar: 2000,
+    cameraPosition: [0, 5, 20],
+    controlsOrbitParameters: {
+      enableDamping: true,
+      maxDistance: 50,
+      maxPolarAngle: Math.PI * 0.5 - 0.1,
+      minDistance: 5,
+    },
+  };
+
+  /**
+   * Prepares the app.
+   * @async
+   */
+  async prepare() {
+    const renderer = this.getRenderer();
+    renderer.toneMapping = NoToneMapping;
+
+    const scene = this.getScene();
+    scene.fog = new FogExp2(0x333333, 0.005);
+
+    const registry = this.getRegistry();
+    const loader = new Loader(registry);
+
+    const texturePath = "./public/deserted-boat";
+    const textures = await loader.loadTextures({
+      /* Body */
+      bodyColor: `${texturePath}/body/bark_willow_1k/bark_willow_diff_1k.webp`,
+      bodyARM: `${texturePath}/body/bark_willow_1k/bark_willow_arm_1k.webp`,
+      bodyNormal: `${texturePath}/body/bark_willow_1k/bark_willow_nor_gl_1k.webp`,
+      bodyDisplacement: `${texturePath}/body/bark_willow_1k/bark_willow_disp_1k.webp`,
+      /* Plank */
+      plankColor: `${texturePath}/plank/pine_bark_1k/pine_bark_diff_1k.webp`,
+      plankARM: `${texturePath}/plank/pine_bark_1k/pine_bark_arm_1k.webp`,
+      plankNormal: `${texturePath}/plank/pine_bark_1k/pine_bark_nor_gl_1k.webp`,
+      /* Pole */
+      poleColor: `${texturePath}/pole/japanese_sycamore_1k/japanese_sycamore_diff_1k.webp`,
+      poleARM: `${texturePath}/pole/japanese_sycamore_1k/japanese_sycamore_arm_1k.webp`,
+      poleNormal: `${texturePath}/pole/japanese_sycamore_1k/japanese_sycamore_nor_gl_1k.webp`,
+      /* Flag */
+      flag: `${texturePath}/flag/jolly-roger.webp`,
+      /* Water */
+      water0Normal: "./public/common/texture/water/Water_1_M_Normal.webp",
+      water1Normal: "./public/common/texture/water/Water_2_M_Normal.webp",
+    });
+
+    const shaders = await loader.loadShaders({
+      flagWaveVertex: "flagWaveVertex",
+      flagWaveFragment: "flagWaveFragment",
+    });
+
+    const ocean = new WaterPlanar({
+      color: 0xcccccc,
+      flowSpeed: 0.02,
+      normalMap0: textures.water0Normal,
+      normalMap1: textures.water1Normal,
+    });
+    scene.add(ocean.getWater());
+
+    textures.bodyColor.colorSpace = SRGBColorSpace;
+    this.setTextureRepeatWrap(textures.bodyColor, 2, 2, true, true);
+    this.setTextureRepeatWrap(textures.bodyARM, 2, 2, true, true);
+    this.setTextureRepeatWrap(textures.bodyNormal, 2, 2, true, true);
+    this.setTextureRepeatWrap(textures.bodyDisplacement, 2, 2, true, true);
+
+    const boat = new Group();
+    scene.add(boat);
+
+    const bodyRadius = 3;
+    const bodyLength = 8;
+    const bodyPath = new Path();
+    bodyPath.absarc(0, bodyLength * -0.5, bodyRadius, Math.PI * 1.5, 0);
+    bodyPath.absarc(0, bodyLength * 0.5, bodyRadius, 0, Math.PI * 0.5);
+    const bodyPoints = bodyPath.getPoints(8);
+
+    const bodyGeometry = new LatheGeometry(bodyPoints, 32, 0, Math.PI);
+    const bodyPosition = bodyGeometry.getAttribute("position");
+    const bodyUv = bodyGeometry.getAttribute("uv");
+    for (let i = 0; i &lt; bodyPosition.count; i++) {
+      bodyUv.setY(i, bodyPosition.getY(i) / 2 + 0.5);
+    }
+    const bodyMaterial = new MeshStandardMaterial({
+      map: textures.bodyColor,
+      aoMap: textures.bodyARM,
+      roughnessMap: textures.bodyARM,
+      metalnessMap: textures.bodyARM,
+      normalMap: textures.bodyNormal,
+      displacementMap: textures.bodyDisplacement,
+      displacementScale: 0.5,
+      displacementBias: 0.1,
+      side: DoubleSide,
+    });
+    const body = new Mesh(bodyGeometry, bodyMaterial);
+    body.rotation.z = -Math.PI * 0.5;
+    body.position.y = 2;
+    boat.add(body);
+
+    const coverGeometry = new CircleGeometry(3, 16, 0, Math.PI);
+
+    const cover1 = new Mesh(coverGeometry, bodyMaterial);
+    cover1.position.x = -4.1;
+    cover1.position.y = 1.7;
+    cover1.rotation.x = Math.PI * 0.5;
+    cover1.rotation.z = Math.PI * 0.5;
+    boat.add(cover1);
+
+    const cover2 = new Mesh(coverGeometry, bodyMaterial);
+    cover2.position.x = 4.1;
+    cover2.position.y = 1.7;
+    cover2.rotation.x = Math.PI * 0.5;
+    cover2.rotation.z = -Math.PI * 0.5;
+    boat.add(cover2);
+
+    textures.plankColor.colorSpace = SRGBColorSpace;
+    textures.plankColor.rotation = Math.PI * 0.5;
+
+    const plankGeometry = new BoxGeometry(1, 5, 0.25, 12, 12, 12);
+    const plankMaterial = new MeshStandardMaterial({
+      map: textures.plankColor,
+      aoMap: textures.plankARM,
+      roughnessMap: textures.plankARM,
+      metalnessMap: textures.plankARM,
+      normalMap: textures.plankNormal,
+    });
+
+    const plank1 = new Mesh(plankGeometry, plankMaterial);
+    plank1.position.x = -2;
+    plank1.rotation.x = Math.PI * 0.5;
+    boat.add(plank1);
+
+    const plank2 = new Mesh(plankGeometry, plankMaterial);
+    plank2.rotation.x = Math.PI * 0.5;
+    boat.add(plank2);
+
+    const plank3 = new Mesh(plankGeometry, plankMaterial);
+    plank3.position.x = 2;
+    plank3.rotation.x = Math.PI * 0.5;
+    boat.add(plank3);
+
+    const plank4 = new Mesh(plankGeometry, plankMaterial);
+    plank4.scale.y = 1.38;
+    plank4.position.x = -1;
+    plank4.position.y = 1;
+    plank4.rotation.x = Math.PI * 0.5;
+    boat.add(plank4);
+
+    const plank5 = new Mesh(plankGeometry, plankMaterial);
+    plank5.scale.y = 1.38;
+    plank5.position.x = 1;
+    plank5.position.y = 1;
+    plank5.rotation.x = Math.PI * 0.5;
+    boat.add(plank5);
+
+    textures.poleColor.colorSpace = SRGBColorSpace;
+
+    const poleSize = {
+      radiusTop: 0.01,
+      radiusBottom: 0.1,
+      height: 7.5,
+      radialSegments: 12,
+      heightSegments: 12,
+    };
+    const poleGeometry = new CylinderGeometry(...Object.values(poleSize));
+    const poleMaterial = new MeshStandardMaterial({
+      map: textures.poleColor,
+      aoMap: textures.poleARM,
+      roughnessMap: textures.poleARM,
+      metalnessMap: textures.poleARM,
+      normalMap: textures.poleNormal,
+    });
+
+    const pole = new Mesh(poleGeometry, poleMaterial);
+    pole.position.x = -5;
+    pole.position.y = 3;
+    boat.add(pole);
+
+    const flagGeometry = new PlaneGeometry(3, 2, 32, 32);
+    const flagMaterial = new ShaderMaterial({
+      vertexShader: shaders.flagWaveVertex,
+      fragmentShader: shaders.flagWaveFragment,
+      uniforms: {
+        uFrequency: { value: new Vector2(5, 2) },
+        uTime: { value: 0 },
+        uColor: { value: new Color("green") },
+        uTexture: { value: textures.flag },
+      },
+    });
+
+    const flag = new Mesh(flagGeometry, flagMaterial);
+    flag.position.x = -3.5;
+    flag.position.y = 5;
+    boat.add(flag);
+
+    const flag2 = new Mesh(flagGeometry, flagMaterial);
+    flag2.position.x = -3.5;
+    flag2.position.y = 5;
+    flag2.rotation.y = Math.PI;
+    boat.add(flag2);
+
+    boat.rotation.y = Math.PI * -0.25;
+
+    this.addScreenUpdateEvent((delta, elapsed) => {
+      flagMaterial.uniforms.uTime.value = elapsed * 3;
+      boat.position.y = Math.sin(elapsed) * 0.25;
+      boat.rotation.z = Math.sin(elapsed) * 0.1;
+    });
+
+    const skyCube = new SkyCube({
+      scale: 100,
+      turbidity: 0.3,
+      rayleigh: 2.5,
+      mieCoefficient: 0.052,
+      mieDirectionalG: 0.99,
+      elevation: 1,
+      azimuth: -175,
+      color: 0xeeeeee,
+      intensity: 8.5,
+      gui: registry.has("debug.gui") ? registry.get("debug.gui") : null,
+    });
+    scene.add(skyCube.getSky());
+
+    const directionalLight = skyCube.getSunLight();
+    directionalLight.castShadow = true;
+    directionalLight.shadow.mapSize.width = 256;
+    directionalLight.shadow.mapSize.height = 256;
+    directionalLight.shadow.camera.top = 32;
+    directionalLight.shadow.camera.right = 32;
+    directionalLight.shadow.camera.bottom = -32;
+    directionalLight.shadow.camera.left = -64;
+    directionalLight.shadow.camera.near = 0.1;
+    directionalLight.shadow.camera.far = 128;
+    scene.add(directionalLight);
+
+    const notification = registry.get("notification");
+    notification.notice("&lt;strong>Deserted Boat&lt;/strong>");
+    notification.notice(
+      "Another implementation of basic geometries with standard textured materials. The flag is simple vertex/fragment shaders written in GLSL. The ocean/water effect is more advanced shaders."
+    );
+    notification.notice(
+      "Textures — [Bark Willow](https://polyhaven.com/a/bark_willow) | [Pine Bark](https://polyhaven.com/a/pine_bark) | [Japanese Sycamore](https://polyhaven.com/a/japanese_sycamore)"
+    );
+    notification.notice(
+      "Flag — [Flag of Jolly Roger (Pirate Flag)](https://vectorflags.com/pirates/his-pir-flag-01)"
+    );
+  }
+
+  /**
+   * Sets texture repeat pattern and wrapping method.
+   * @param {Texture} texture Texture object instance.
+   * @param {number} repeatX Repeating patterns value in the X direction.
+   * @param {number} repeatY Repeating patterns value in the Y direction.
+   * @param {(boolean|number)} [wrapHorizontal=false] Horizontal wrapping
+   *    method.
+   * @param {(boolean|number)} [wrapVertical=false] Vertical wrapping method.
+   */
+  setTextureRepeatWrap(
+    texture,
+    repeatX,
+    repeatY,
+    wrapHorizontal = false,
+    wrapVertical = false
+  ) {
+    texture.repeat.set(repeatX, repeatY);
+
+    if (wrapHorizontal === true) {
+      texture.wrapS = RepeatWrapping;
+    } else if (typeof wrapHorizontal === "number") {
+      texture.wrapS = wrapHorizontal;
+    }
+    if (wrapVertical === true) {
+      texture.wrapT = RepeatWrapping;
+    } else if (typeof wrapVertical === "number") {
+      texture.wrapT = wrapVertical;
+    }
+  }
+}
+
+export default DesertedBoat;
+</code></pre></article></section></div></div></div><div class="search-container" id="PkfLWpAbet" style="display:none"><div class="wrapper" id="iCxFxjkHbP"><button class="icon-button search-close-button" id="VjLlGakifb" aria-label="close search"><svg><use xlink:href="#close-icon"></use></svg></button><div class="search-box-c"><svg><use xlink:href="#search-icon"></use></svg> <input type="text" id="vpcKVYIppa" class="search-input" placeholder="Search..." autofocus></div><div class="search-result-c" id="fWwVHRuDuN"><span class="search-result-c-text">Type anything to view search result</span></div></div></div><div class="mobile-menu-icon-container"><button class="icon-button" id="mobile-menu" data-isopen="false" aria-label="menu"><svg><use xlink:href="#menu-icon"></use></svg></button></div><div id="mobile-sidebar" class="mobile-sidebar-container"><div class="mobile-sidebar-wrapper"><div class="mobile-nav-links"></div><div class="mobile-sidebar-items-c"><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-modules"><div>Modules</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-App.html">App</a></div><div class="sidebar-section-children"><a href="module-Screen.html">Screen</a></div><div class="sidebar-section-children"><a href="module-System.html">System</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-classes"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-App.DesertedBoat.html">DesertedBoat</a></div><div class="sidebar-section-children"><a href="module-App.MeshParticles.html">MeshParticles</a></div><div class="sidebar-section-children"><a href="module-App.PangramGenerator.html">PangramGenerator</a></div><div class="sidebar-section-children"><a href="module-App.RotatingBox.html">RotatingBox</a></div><div class="sidebar-section-children"><a href="module-App.StoneMonument.html">StoneMonument</a></div><div class="sidebar-section-children"><a href="module-App.ValentinesDay.html">ValentinesDay</a></div><div class="sidebar-section-children"><a href="module-Screen.WebGL.html">WebGL</a></div><div class="sidebar-section-children"><a href="module-Screen.WebGLPerspectiveOrbit.html">WebGLPerspectiveOrbit</a></div><div class="sidebar-section-children"><a href="module-System.Alert.html">Alert</a></div><div class="sidebar-section-children"><a href="module-System.DebugGUI.html">DebugGUI</a></div><div class="sidebar-section-children"><a href="module-System.DebugStats.html">DebugStats</a></div><div class="sidebar-section-children"><a href="module-System.Loader.html">Loader</a></div><div class="sidebar-section-children"><a href="module-System.SkyCube.html">SkyCube</a></div><div class="sidebar-section-children"><a href="module-System.WaterPlanar.html">WaterPlanar</a></div></div></div><div class="mobile-navbar-actions"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#light-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div></div></div><script type="text/javascript" src="scripts/core.min.js"></script><script src="scripts/search.min.js" defer="defer"></script><script src="scripts/third-party/fuse.js" defer="defer"></script><script type="text/javascript">var tocbotInstance=tocbot.init({tocSelector:"#eed4d2a0bfd64539bb9df78095dec881",contentSelector:".main-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0,scrollContainer:".main-content",headingsOffset:130,onClick:bringLinkToView})</script></body></html>
