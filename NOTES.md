@@ -10,7 +10,7 @@
 
 ### Regenerate Documentation
 
-To regenerate the documentation, ensure [JSDoc](https://jsdoc.app/) is installed. And install the ["Clean JSDoc Theme"](https://github.com/ankitskvmdam/clean-jsdoc-theme) template.
+To regenerate the documentation, ensure [JSDoc](https://jsdoc.app/) is installed. And install the [Clean JSDoc Theme](https://github.com/ankitskvmdam/clean-jsdoc-theme) template.
 
 ```
 npm install -g jsdoc

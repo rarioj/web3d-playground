@@ -28,12 +28,6 @@ class SkyCube {
   #light;
 
   /**
-   * Light source distance from the origin.
-   * @type {number}
-   */
-  #distance;
-
-  /**
    * Object instance current state.
    * @type {Object}
    */
@@ -89,7 +83,6 @@ class SkyCube {
 
     this.#sun = new Vector3();
     this.#light = light ? new DirectionalLight(color, intensity) : null;
-    this.#distance = distance;
     this.#state = {
       scale,
       turbidity,
@@ -98,6 +91,8 @@ class SkyCube {
       mieDirectionalG,
       elevation,
       azimuth,
+      intensity,
+      distance,
     };
 
     this.setSunPosition(elevation, azimuth);
@@ -116,6 +111,14 @@ class SkyCube {
   }
 
   /**
+   * Returns the object instance's current state.
+   * @returns {Object}
+   */
+  getState() {
+    return this.#state;
+  }
+
+  /**
    * Returns the Sun vector position.
    * @returns {Vector3}
    */
@@ -131,11 +134,13 @@ class SkyCube {
   setSunPosition(elevation, azimuth) {
     const phi = MathUtils.degToRad(90 - elevation);
     const theta = MathUtils.degToRad(azimuth);
+    const factor = Math.sin(MathUtils.degToRad(elevation));
     this.#sun.setFromSphericalCoords(1, phi, theta);
     this.#sky.material.uniforms.sunPosition.value.copy(this.#sun);
     if (this.#light) {
       this.#light.position.copy(this.#sun);
-      this.#light.position.multiplyScalar(this.#distance);
+      this.#light.position.multiplyScalar(this.#state.distance);
+      this.#light.intensity = Math.max(0, factor * this.#state.intensity);
     }
   }
 

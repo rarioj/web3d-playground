@@ -4,7 +4,7 @@
 
 ## Setup
 
-This playground requires a minimal setup without additional JavaScript local tools (no `node_modules`). The `index.html` file must be served under HTTP as some features will not work using the file protocol. Thus, a web server is needed.
+This playground requires a minimal setup without additional JavaScript local tools (no `node_modules`). The `index.html` file must be served under an HTTP server. Some features will not work using the standard file protocol, so a web server is needed.
 
 The quickest way to run a web server is to install the `live-server` package globally and run it in the project root directory.
 

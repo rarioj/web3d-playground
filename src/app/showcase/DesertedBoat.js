@@ -56,7 +56,7 @@ class DesertedBoat extends WebGLPerspectiveOrbit {
     renderer.toneMapping = NoToneMapping;
 
     const scene = this.getScene();
-    scene.fog = new FogExp2(0x333333, 0.005);
+    scene.fog = new FogExp2(0x333333, 0.0075);
 
     const registry = this.getRegistry();
     const loader = new Loader(registry);
@@ -246,14 +246,14 @@ class DesertedBoat extends WebGLPerspectiveOrbit {
 
     const skyCube = new SkyCube({
       scale: 100,
-      turbidity: 0.3,
-      rayleigh: 2.5,
-      mieCoefficient: 0.052,
+      turbidity: 18,
+      rayleigh: 0.5,
+      mieCoefficient: 0.1,
       mieDirectionalG: 0.99,
-      elevation: 1,
+      elevation: 5,
       azimuth: -175,
       color: 0xeeeeee,
-      intensity: 8.5,
+      intensity: 7,
       gui: registry.has("debug.gui") ? registry.get("debug.gui") : null,
     });
     scene.add(skyCube.getSky());

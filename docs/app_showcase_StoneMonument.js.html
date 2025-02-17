@@ -8,6 +8,7 @@
   Mesh,
   MeshStandardMaterial,
   PCFSoftShadowMap,
+  PointLight,
   RepeatWrapping,
   RingGeometry,
   SphereGeometry,
@@ -85,7 +86,7 @@ class StoneMonument extends WebGLPerspectiveOrbit {
     this.setTextureRepeatWrap(textures.groundDisplacement, 4, 4, true, true);
 
     const ground = new Mesh(
-      new RingGeometry(0, 30, 6, 100),
+      new RingGeometry(0, 30, 64, 100),
       new MeshStandardMaterial({
         transparent: true,
         alphaMap: textures.groundAlpha,
@@ -238,7 +239,7 @@ class StoneMonument extends WebGLPerspectiveOrbit {
       rayleigh: 0.055,
       mieCoefficient: 0.1,
       mieDirectionalG: 0.99,
-      elevation: -25,
+      elevation: -180,
       azimuth: -180,
       color: 0xeeeeee,
       intensity: 8,
@@ -259,6 +260,55 @@ class StoneMonument extends WebGLPerspectiveOrbit {
     scene.add(directionalLight);
 
     this.addScreenUpdateEvent(skyCube.getScreenUpdateCallback(5));
+
+    const firefly1 = new PointLight(0xff8888, 15);
+    firefly1.castShadow = true;
+    firefly1.shadow.mapSize.width = 256;
+    firefly1.shadow.mapSize.height = 256;
+    firefly1.shadow.camera.far = 128;
+
+    const firefly2 = new PointLight(0x88ff88, 15);
+    firefly2.castShadow = true;
+    firefly2.shadow.mapSize.width = 256;
+    firefly2.shadow.mapSize.height = 256;
+    firefly2.shadow.camera.far = 128;
+
+    const firefly3 = new PointLight(0x8888ff, 15);
+    firefly3.castShadow = true;
+    firefly3.shadow.mapSize.width = 256;
+    firefly3.shadow.mapSize.height = 256;
+    firefly3.shadow.camera.far = 128;
+
+    scene.add(firefly1, firefly2, firefly3);
+
+    this.addScreenUpdateEvent((delta, elapsed) => {
+      const skyCubeState = skyCube.getState();
+      const factor = Math.sin(MathUtils.degToRad(skyCubeState?.elevation)) * -1;
+      const angle1 = elapsed * 0.3;
+      const angle2 = elapsed * -0.6;
+      const angle3 = elapsed * 0.9;
+
+      firefly1.position.x = Math.cos(angle1) * 3;
+      firefly1.position.z = Math.sin(angle1) * 3;
+      firefly1.position.y =
+        Math.sin(angle1) * Math.sin(angle1 * 2.34) * Math.sin(angle1 * 3.45) +
+        2;
+      firefly1.intensity = Math.max(0, factor * 15);
+
+      firefly2.position.x = Math.cos(angle2) * 6;
+      firefly2.position.z = Math.sin(angle2) * 6;
+      firefly2.position.y =
+        Math.sin(angle2) * Math.sin(angle2 * 2.34) * Math.sin(angle2 * 3.45) +
+        2;
+      firefly2.intensity = Math.max(0, factor * 15);
+
+      firefly3.position.x = Math.cos(angle3) * 9;
+      firefly3.position.z = Math.sin(angle3) * 9;
+      firefly3.position.y =
+        Math.sin(angle3) * Math.sin(angle3 * 2.34) * Math.sin(angle3 * 3.45) +
+        2;
+      firefly3.intensity = Math.max(0, factor * 15);
+    });
 
     const notification = registry.get("notification");
     notification.notice("&lt;strong>Stone Monument&lt;/strong>");
