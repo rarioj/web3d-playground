@@ -180,7 +180,7 @@ class Loader {
   /**
    * Loads a shader file.
    * @param {string} name Shader name.
-   * @param {string} filename Shader filename without GLSL file extension.
+   * @param {string} filename Shader filename.
    * @returns {Promise<string>} Promised shader file content.
    * @async
    */
@@ -190,9 +190,9 @@ class Loader {
       return this.#registry.get(key);
     }
 
-    const response = await fetch(`${this.#shaderPath}/${filename}.glsl`);
+    const response = await fetch(`${this.#shaderPath}/${filename}`);
     if (!response.ok || response.status !== 200) {
-      throw `Failed to load shader ${name} - ${filename}.glsl`;
+      throw `Failed to load shader ${this.#shaderPath}/${filename}`;
     }
     const shader = await response.text();
 
@@ -203,7 +203,7 @@ class Loader {
   /**
    * Loads multiple shader files.
    * @param {Object<string, string>} names Object with shader name (key) and
-   *    shader filename without GLSL file extension (value).
+   *    shader filename (value).
    * @returns {Promise<Object<string, string>>} Promised object with shader name
    *    (key) and shader file content (value).
    * @async
