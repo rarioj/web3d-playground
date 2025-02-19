@@ -12,6 +12,7 @@
 | [Stone Monument](./app.html?app=3&stats=1) ~ An implementation of basic geometries with standard textured materials casting shadows from the rising and setting sunlight.                                                                   | ![Stone Monument](./public/screenshot/StoneMonument.webp)       |
 | [Deserted Boat](./app.html?app=4&gui=1&stats=1) ~ Another implementation of basic geometries with standard textured materials. The flag is simple vertex/fragment shaders written in GLSL. The ocean/water effect is more advanced shaders. | ![Deserted Boat](./public/screenshot/DesertedBoat.webp)         |
 | [Valentine's Day](./app.html?app=5) ~ A text geometry, a heart-shaped extruded geometry, for a Valentine's Day special.                                                                                                                     | ![Valentine's Day](./public/screenshot/ValentinesDay.webp)      |
+| [Old Computer](./app-old_computer.html?app=6&gui=1) ~ A glTF model of an old computer. It's a functioning computer, too. What can be rendered on the monitor screen?                                                                        | ![Old Computer](./public/screenshot/OldComputer.webp)           |
 
 ### Credits & Attributions
 
@@ -26,3 +27,8 @@
 - [Japanese Sycamore](https://polyhaven.com/a/japanese_sycamore) from Poly Haven
 - [Flag of Jolly Roger (Pirate Flag)](https://vectorflags.com/pirates/his-pir-flag-01) from Vector Flags
 - [Courgette](https://fonts.google.com/specimen/Courgette) by Karolina Lach from Google Fonts
+- [Aerodynamics Workshop](https://polyhaven.com/a/aerodynamics_workshop) from Poly Haven
+- [IBM 3178](https://skfb.ly/6XWzr) by maxdragonn is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
+- [Lorem Picsum](https://picsum.photos/), The Lorem Ipsum for photos
+- [Prince of Persia (1989)](https://dos.zone/prince-of-persia-1990/) from DOS Zone
+- [Rick Rolled (Short Version)](https://www.youtube.com/watch?v=BBJa32lCaaY) from YouTube

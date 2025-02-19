@@ -4,6 +4,7 @@ import MeshParticles from "./showcase/MeshParticles.js";
 import StoneMonument from "./showcase/StoneMonument.js";
 import DesertedBoat from "./showcase/DesertedBoat.js";
 import ValentinesDay from "./showcase/ValentinesDay.js";
+import OldComputer from "./showcase/OldComputer.js";
 
 /**
  * @module App
@@ -16,4 +17,5 @@ export default [
   StoneMonument, // 3
   DesertedBoat, // 4
   ValentinesDay, // 5
+  OldComputer, // 6
 ];

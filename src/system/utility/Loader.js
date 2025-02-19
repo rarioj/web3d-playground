@@ -7,6 +7,7 @@ import {
 } from "three";
 import { Font, FontLoader } from "three/addons/loaders/FontLoader.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { RGBELoader } from "three/addons/loaders/RGBELoader.js";
 
 /**
  * Helper class that loads textures, fonts, shaders, models, etc.
@@ -42,6 +43,12 @@ class Loader {
    * @type {GLTFLoader}
    */
   #gltfLoader;
+
+  /**
+   * RGBE loader object instance.
+   * @type {RGBELoader}
+   */
+  #rgbeLoader;
 
   /**
    * Instantiates a new Loader object.
@@ -260,6 +267,48 @@ class Loader {
     }
 
     return models;
+  }
+
+  /**
+   * Loads an RGBE image texture.
+   * @param {string} name Image name.
+   * @param {string} url Image location URL.
+   * @returns {Promise<Texture>} Promised RGBE image texture.
+   * @async
+   */
+  async loadRGBETexture(name, url) {
+    if (this.#rgbeLoader === undefined) {
+      this.#rgbeLoader = new RGBELoader();
+    }
+
+    const key = `rgbeFile:${name}`;
+    if (this.#registry.has(key)) {
+      return this.#registry.get(key);
+    }
+
+    const texture = new Promise((resolve) => {
+      this.#rgbeLoader.load(url, (loaded) => resolve(loaded));
+    });
+    this.#registry.set(key, texture);
+    return texture;
+  }
+
+  /**
+   * Loads multiple RGBE image textures.
+   * @param {Object<string, string>} urls Object with texture name (key) and
+   *    texture location URL (value).
+   * @returns {Promise<Object<string, Texture>>} Promised object with texture
+   *    name (key) and texture object (value).
+   * @async
+   */
+  async loadRGBETextures(urls) {
+    let textures = {};
+
+    for (const key in urls) {
+      textures[key] = await this.loadRGBETexture(key, urls[key]);
+    }
+
+    return textures;
   }
 }
 
