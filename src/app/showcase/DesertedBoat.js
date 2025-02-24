@@ -83,9 +83,9 @@ class DesertedBoat extends WebGLPerspectiveOrbit {
       water1Normal: "./public/common/texture/water/Water_2_M_Normal.webp",
     });
 
-    const shaders = await loader.loadShaders({
-      flagWaveVertex: "glsl/flagWaveVertex.glsl",
-      flagWaveFragment: "glsl/flagWaveFragment.glsl",
+    const shaders = await loader.loadGLSLFiles({
+      flagWaveVertex: "flagWave/vertex",
+      flagWaveFragment: "flagWave/fragment",
     });
 
     const ocean = new WaterPlanar({

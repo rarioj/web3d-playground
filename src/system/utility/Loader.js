@@ -15,16 +15,16 @@ import { RGBELoader } from "three/addons/loaders/RGBELoader.js";
  */
 class Loader {
   /**
+   * Path to GLSL files.
+   * @type {string}
+   */
+  static GLSL_PATH = "./src/system/shader/glsl";
+
+  /**
    * Registry object instance.
    * @type {Map}
    */
   #registry;
-
-  /**
-   * Path to shader files.
-   * @type {string}
-   */
-  #shaderPath;
 
   /**
    * Texture loader object instance.
@@ -53,11 +53,9 @@ class Loader {
   /**
    * Instantiates a new Loader object.
    * @param {Map} [registry=new Map()] Registry object instance.
-   * @param {string} [shaderPath=./src/system/shader] Path to shader files.
    */
-  constructor(registry = new Map(), shaderPath = "./src/system/shader") {
+  constructor(registry = new Map()) {
     this.#registry = registry;
-    this.#shaderPath = shaderPath;
 
     Cache.enabled = true;
 
@@ -80,22 +78,6 @@ class Loader {
       const basename = url.split("/").pop();
       notification.error(`Loading ${basename} (${url})`);
     };
-  }
-
-  /**
-   * Returns the current path to the shader files.
-   * @returns {string} Current shader path.
-   */
-  getShaderPath() {
-    return this.#shaderPath;
-  }
-
-  /**
-   * Sets the path to the shader files.
-   * @param {string} path New shader path.
-   */
-  setShaderPath(path) {
-    this.#shaderPath = path;
   }
 
   /**
@@ -185,21 +167,21 @@ class Loader {
   }
 
   /**
-   * Loads a shader file.
+   * Loads a GLSL (OpenGL Shading Language) file.
    * @param {string} name Shader name.
-   * @param {string} filename Shader filename.
+   * @param {string} type Shader type (excluding the GLSL extension).
    * @returns {Promise<string>} Promised shader file content.
    * @async
    */
-  async loadShader(name, filename) {
-    const key = `shader:${name}`;
+  async loadGLSLFile(name, type) {
+    const key = `shader:glsl:${name}:${type}`;
     if (this.#registry.has(key)) {
       return this.#registry.get(key);
     }
 
-    const response = await fetch(`${this.#shaderPath}/${filename}`);
+    const response = await fetch(`${Loader.GLSL_PATH}/${type}.glsl`);
     if (!response.ok || response.status !== 200) {
-      throw `Failed to load shader ${this.#shaderPath}/${filename}`;
+      throw `Failed to load shader ${Loader.GLSL_PATH}/${type}.glsl`;
     }
     const shader = await response.text();
 
@@ -208,18 +190,18 @@ class Loader {
   }
 
   /**
-   * Loads multiple shader files.
+   * Loads multiple GLSL (OpenGL Shading Language) files.
    * @param {Object<string, string>} names Object with shader name (key) and
-   *    shader filename (value).
+   *    shader type (value).
    * @returns {Promise<Object<string, string>>} Promised object with shader name
    *    (key) and shader file content (value).
    * @async
    */
-  async loadShaders(names) {
+  async loadGLSLFiles(names) {
     let shaders = {};
 
     for (const key in names) {
-      shaders[key] = await this.loadShader(key, names[key]);
+      shaders[key] = await this.loadGLSLFile(key, names[key]);
     }
 
     return shaders;

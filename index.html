@@ -15,7 +15,7 @@
     <header>
       <nav>
         <a href="./index.html" id="nav-apps">Apps</a>
-        <a href="./index.html?readme=1" id="nav-readme">Readme</a>
+        <a href="./index.html?setup=1" id="nav-setup">Setup</a>
         <a href="./index.html?notes=1" id="nav-notes">Notes</a>
       </nav>
     </header>
@@ -34,9 +34,9 @@
         const query = Object.fromEntries(new URL(location).searchParams);
 
         let mdfile;
-        if (query?.readme) {
-          mdfile = "./README.md";
-          document.getElementById("nav-readme").classList.add("current");
+        if (query?.setup) {
+          mdfile = "./SETUP.md";
+          document.getElementById("nav-setup").classList.add("current");
         } else if (query?.notes) {
           mdfile = "./NOTES.md";
           document.getElementById("nav-notes").classList.add("current");
