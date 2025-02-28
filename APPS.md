@@ -1,4 +1,4 @@
-# Web3D Playground ▶ Apps
+# Web3D Playground ▸ Apps
 
 > Please note that these app links below will only work when this page is run on a web server.
 
@@ -12,7 +12,13 @@
 | [Stone Monument](./app.html?app=3&stats=1) ~ An implementation of basic geometries with standard textured materials casting shadows from the rising and setting sunlight.                                                                   | ![Stone Monument](./public/screenshot/StoneMonument.webp)       |
 | [Deserted Boat](./app.html?app=4&gui=1&stats=1) ~ Another implementation of basic geometries with standard textured materials. The flag is simple vertex/fragment shaders written in GLSL. The ocean/water effect is more advanced shaders. | ![Deserted Boat](./public/screenshot/DesertedBoat.webp)         |
 | [Valentine's Day](./app.html?app=5) ~ A text geometry, a heart-shaped extruded geometry, for a Valentine's Day special.                                                                                                                     | ![Valentine's Day](./public/screenshot/ValentinesDay.webp)      |
-| [Old Computer](./app-old_computer.html?app=6&gui=1) ~ A glTF model of an old computer. It's a functioning computer, too. What can be rendered on the monitor screen?                                                                        | ![Old Computer](./public/screenshot/OldComputer.webp)           |
+| [Old Computer](./app.html?&app=6&gui=1&emulators=1) ~ A glTF model of an old computer. It's a functioning computer, too. What can be rendered on the monitor screen?                                                                        | ![Old Computer](./public/screenshot/OldComputer.webp)           |
+
+## Pages
+
+| Name                                                                                                                                            | Thumbnail                                             |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| [Car Showroom](./app-CarShowroom.html?app=7&gsap=1) ~ A prototype of a web page on top of a WebGL canvas scene rendering three glTF car models. | ![Car Showroom](./public/screenshot/CarShowroom.webp) |
 
 ### Credits & Attributions
 
@@ -32,3 +38,4 @@
 - [Lorem Picsum](https://picsum.photos/), The Lorem Ipsum for photos
 - [Prince of Persia (1989)](https://dos.zone/prince-of-persia-1990/) from DOS Zone
 - [Rick Rolled (Short Version)](https://www.youtube.com/watch?v=BBJa32lCaaY) from YouTube
+- [Low-poly cartoon style car 01](https://skfb.ly/oxu87) | [Low-poly cartoon style car 02](https://skfb.ly/ovLQT) | [Low-poly cartoon style car 03](https://skfb.ly/owUr9) by arturs.vitas are licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).

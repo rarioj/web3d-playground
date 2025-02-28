@@ -12,13 +12,13 @@ import {
   NoToneMapping,
   Path,
   PlaneGeometry,
-  RepeatWrapping,
   ShaderMaterial,
   SRGBColorSpace,
   Vector2,
 } from "three";
 import WebGLPerspectiveOrbit from "../../screen/webgl/WebGLPerspectiveOrbit.js";
 import Loader from "../../system/utility/Loader.js";
+import TextureHelper from "../../system/utility/TextureHelper.js";
 import WaterPlanar from "../../system/component/WaterPlanar.js";
 import SkyCube from "../../system/component/SkyCube.js";
 
@@ -97,10 +97,10 @@ class DesertedBoat extends WebGLPerspectiveOrbit {
     scene.add(ocean.getWater());
 
     textures.bodyColor.colorSpace = SRGBColorSpace;
-    this.setTextureRepeatWrap(textures.bodyColor, 2, 2, true, true);
-    this.setTextureRepeatWrap(textures.bodyARM, 2, 2, true, true);
-    this.setTextureRepeatWrap(textures.bodyNormal, 2, 2, true, true);
-    this.setTextureRepeatWrap(textures.bodyDisplacement, 2, 2, true, true);
+    TextureHelper.setRepeatWrap(textures.bodyColor, 2, 2, true, true);
+    TextureHelper.setRepeatWrap(textures.bodyARM, 2, 2, true, true);
+    TextureHelper.setRepeatWrap(textures.bodyNormal, 2, 2, true, true);
+    TextureHelper.setRepeatWrap(textures.bodyDisplacement, 2, 2, true, true);
 
     const boat = new Group();
     scene.add(boat);
@@ -281,36 +281,6 @@ class DesertedBoat extends WebGLPerspectiveOrbit {
     notification.notice(
       "Flag — [Flag of Jolly Roger (Pirate Flag)](https://vectorflags.com/pirates/his-pir-flag-01)"
     );
-  }
-
-  /**
-   * Sets texture repeat pattern and wrapping method.
-   * @param {Texture} texture Texture object instance.
-   * @param {number} repeatX Repeating patterns value in the X direction.
-   * @param {number} repeatY Repeating patterns value in the Y direction.
-   * @param {(boolean|number)} [wrapHorizontal=false] Horizontal wrapping
-   *    method.
-   * @param {(boolean|number)} [wrapVertical=false] Vertical wrapping method.
-   */
-  setTextureRepeatWrap(
-    texture,
-    repeatX,
-    repeatY,
-    wrapHorizontal = false,
-    wrapVertical = false
-  ) {
-    texture.repeat.set(repeatX, repeatY);
-
-    if (wrapHorizontal === true) {
-      texture.wrapS = RepeatWrapping;
-    } else if (typeof wrapHorizontal === "number") {
-      texture.wrapS = wrapHorizontal;
-    }
-    if (wrapVertical === true) {
-      texture.wrapT = RepeatWrapping;
-    } else if (typeof wrapVertical === "number") {
-      texture.wrapT = wrapVertical;
-    }
   }
 }
 

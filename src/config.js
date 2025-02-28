@@ -42,11 +42,13 @@ export default {
     // canvasClassname: "webgl-canvas-element",
     // canvasContainer: document.body,
     //
-    /* Class WebGLPerspectiveOrbit */
+    /* Class WebGLPerspective */
     // cameraPerspectiveFov: 45,
     // cameraPerspectiveNear: 0.1,
     // cameraPerspectiveFar: 100,
     // cameraPosition: [0, 0, -5],
+    //
+    /* Class WebGLPerspectiveOrbit */
     // controlsOrbitParameters: { enableDamping: true },
   },
 };

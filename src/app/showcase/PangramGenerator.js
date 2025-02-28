@@ -69,7 +69,8 @@ class PangramGenerator extends WebGLPerspectiveOrbit {
    * @async
    */
   async prepare() {
-    const loader = new Loader(this.getRegistry());
+    const registry = this.getRegistry();
+    const loader = new Loader(registry);
 
     const fontPath = "./public/common/font";
     const fonts = await loader.loadFonts({
@@ -129,7 +130,6 @@ class PangramGenerator extends WebGLPerspectiveOrbit {
     };
     this.generatePangram(this.#state.size);
 
-    const registry = this.getRegistry();
     if (registry.has("debug.gui")) {
       this.#setupGuiControllers(
         registry.get("debug.gui").addFolder("Pangram Generator").close()

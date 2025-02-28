@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web3D Playground</title>
+    <script src="./src/script.js"></script>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: black;
+      }
+      main {
+        height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+      }
+      canvas {
+        left: 0;
+        position: fixed;
+        top: 0;
+        z-index: 0;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: cursive;
+      }
+      h1 {
+        font-size: 4em;
+      }
+      h2 {
+        font-size: 3em;
+      }
+      h3 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1em;
+        max-width: 300px;
+        padding: 1em 0;
+      }
+      section {
+        align-items: center;
+        color: white;
+        font-family: sans-serif;
+        height: 100vh;
+        overflow-y: scroll;
+        position: relative;
+        scroll-snap-align: center;
+        text-shadow: 0.2em 0.2em 0.2em gray;
+        z-index: 1;
+      }
+      section button {
+        border: 0;
+        border-radius: 0.25em;
+        box-shadow: 0.2em 0.2em 0.2em gray;
+        color: black;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 1em;
+        height: 2em;
+        outline: 0;
+        padding: 0 0.5em;
+        width: 2em;
+      }
+      section button.red {
+        background: red;
+      }
+      section button.orange {
+        background: orange;
+      }
+      section button.blue {
+        background: blue;
+      }
+      section div {
+        padding: 0.5em 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section data-action="resetPosition">
+        <div>
+          <h1>Showroom</h1>
+          <p
+            >A prototype of a web page on top of a WebGL canvas scene rendering
+            three glTF car models.</p
+          >
+        </div>
+      </section>
+
+      <section data-action="car1focus">
+        <div>
+          <h2>Model #1</h2>
+          <p
+            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis
+            elit vestibulum, malesuada eros id, malesuada tortor. Nulla
+            facilisi. Sed libero nibh, gravida et feugiat eget, efficitur in
+            tortor.</p
+          >
+          <p
+            ><button class="red" data-action="car1colorRed"
+              >&nbsp;&nbsp;</button
+            >
+            <button class="orange" data-action="car1colorOrange"
+              >&nbsp;&nbsp;</button
+            >
+            <button class="blue" data-action="car1colorBlue"
+              >&nbsp;&nbsp;</button
+            ></p
+          >
+        </div>
+      </section>
+      <section data-action="car1interior">
+        <div>
+          <h3>Interior</h3>
+          <p
+            >Vestibulum vel feugiat nisi. Sed egestas, nibh eu congue volutpat,
+            augue odio mollis eros, et elementum urna felis ut ex.</p
+          >
+        </div>
+      </section>
+      <section data-action="car1parts">
+        <div>
+          <h3>Auto Parts</h3>
+          <p
+            >In lobortis ex velit, vel ornare metus luctus consectetur. Aliquam
+            non mattis metus. Praesent eget ex mattis metus luctus aliquet eu ut
+            dolor.</p
+          >
+        </div>
+      </section>
+
+      <section data-action="car2focus">
+        <div>
+          <h2>Model #2</h2>
+          <p
+            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis
+            elit vestibulum, malesuada eros id, malesuada tortor. Nulla
+            facilisi. Sed libero nibh, gravida et feugiat eget, efficitur in
+            tortor.</p
+          >
+          <p
+            ><button class="red" data-action="car2colorRed"
+              >&nbsp;&nbsp;</button
+            >
+            <button class="orange" data-action="car2colorOrange"
+              >&nbsp;&nbsp;</button
+            >
+            <button class="blue" data-action="car2colorBlue"
+              >&nbsp;&nbsp;</button
+            ></p
+          >
+        </div>
+      </section>
+      <section data-action="car2interior">
+        <div>
+          <h3>Interior</h3>
+          <p
+            >Vestibulum vel feugiat nisi. Sed egestas, nibh eu congue volutpat,
+            augue odio mollis eros, et elementum urna felis ut ex.</p
+          >
+        </div>
+      </section>
+      <section data-action="car2parts">
+        <div>
+          <h3>Auto Parts</h3>
+          <p
+            >In lobortis ex velit, vel ornare metus luctus consectetur. Aliquam
+            non mattis metus. Praesent eget ex mattis metus luctus aliquet eu ut
+            dolor.</p
+          >
+        </div>
+      </section>
+
+      <section data-action="car3focus">
+        <div>
+          <h2>Model #3</h2>
+          <p
+            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis
+            elit vestibulum, malesuada eros id, malesuada tortor. Nulla
+            facilisi. Sed libero nibh, gravida et feugiat eget, efficitur in
+            tortor.</p
+          >
+          <p
+            ><button class="red" data-action="car3colorRed"
+              >&nbsp;&nbsp;</button
+            >
+            <button class="orange" data-action="car3colorOrange"
+              >&nbsp;&nbsp;</button
+            >
+            <button class="blue" data-action="car3colorBlue"
+              >&nbsp;&nbsp;</button
+            ></p
+          >
+        </div>
+      </section>
+      <section data-action="car3interior">
+        <div>
+          <h3>Interior</h3>
+          <p
+            >Vestibulum vel feugiat nisi. Sed egestas, nibh eu congue volutpat,
+            augue odio mollis eros, et elementum urna felis ut ex.</p
+          >
+        </div>
+      </section>
+      <section data-action="car3parts">
+        <div>
+          <h3>Auto Parts</h3>
+          <p
+            >In lobortis ex velit, vel ornare metus luctus consectetur. Aliquam
+            non mattis metus. Praesent eget ex mattis metus luctus aliquet eu ut
+            dolor.</p
+          >
+        </div>
+      </section>
+
+      <section data-action="resetPosition">
+        <div>
+          <h2>Buy Now!</h2>
+          <p
+            >In congue nisi in egestas iaculis. Etiam tincidunt, mauris ac
+            viverra consectetur, ligula tellus tempor dui, sed mollis mauris
+            purus sed urna. Aliquam id vulputate nunc.</p
+          >
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

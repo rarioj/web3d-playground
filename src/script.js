@@ -1,40 +1,39 @@
-import defaults from "./defaults.js";
-import systemInit from "./system/module.js";
-import appList from "./app/module.js";
+(() => {
+  const version = {
+    threejs: "0.174.0",
+    emulators: "8.3.3",
+    emulatorsUi: "0.73.9",
+    gsap: "3.12.7",
+  };
 
-(async () => {
-  const registry = systemInit(defaults);
-  const notification = registry.get("notification");
+  const query = Object.fromEntries(new URL(location).searchParams);
 
-  try {
-    const { app = 0, expose = 0 } = registry.get("query");
+  const map = {};
+  map[
+    "three"
+  ] = `https://cdn.jsdelivr.net/npm/three@${version.threejs}/build/three.module.js`;
+  map[
+    "three/addons/"
+  ] = `https://cdn.jsdelivr.net/npm/three@${version.threejs}/examples/jsm/`;
 
-    if (!appList[app]) {
-      throw `App index '${app}' is not implemented`;
-    }
-    registry.set("app.index", app);
+  const importmap = document.createElement("script");
+  importmap.type = "importmap";
+  importmap.textContent = JSON.stringify({ imports: { ...map } });
+  document.currentScript.after(importmap);
 
-    const options = Object.assign(
-      {},
-      defaults?.options || {},
-      appList[app]?.options || {}
-    );
-    registry.set("app.options", options);
+  if (query?.emulators) {
+    const emulatorsScript = document.createElement("script");
+    emulatorsScript.src = `https://cdn.jsdelivr.net/npm/emulators@${version.emulators}/dist/emulators.min.js`;
+    document.head.appendChild(emulatorsScript);
 
-    const classname = appList[app];
-    registry.set("app.classname", classname);
+    const emulatorsUiScript = document.createElement("script");
+    emulatorsUiScript.src = `https://cdn.jsdelivr.net/npm/emulators-ui@${version.emulatorsUi}/dist/emulators-ui.min.js`;
+    document.head.appendChild(emulatorsUiScript);
+  }
 
-    const instance = new classname({ registry, ...options });
-    document.title = `Web3D Playground ▶ Apps ▶ ${instance.constructor.name}`;
-    registry.set("app.instance", instance);
-
-    if (Boolean(expose) === true) {
-      window._registry = registry;
-    }
-
-    await instance.start();
-  } catch (thrown) {
-    console.error(thrown);
-    notification.error(thrown);
+  if (query?.gsap) {
+    const gsapScript = document.createElement("script");
+    gsapScript.src = `https://cdn.jsdelivr.net/npm/gsap@${version.gsap}/dist/gsap.min.js`;
+    document.head.appendChild(gsapScript);
   }
 })();

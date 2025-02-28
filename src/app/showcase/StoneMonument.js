@@ -7,14 +7,13 @@ import {
   MeshStandardMaterial,
   PCFSoftShadowMap,
   PointLight,
-  RepeatWrapping,
   RingGeometry,
   SphereGeometry,
   SRGBColorSpace,
-  Texture,
 } from "three";
 import WebGLPerspectiveOrbit from "../../screen/webgl/WebGLPerspectiveOrbit.js";
 import Loader from "../../system/utility/Loader.js";
+import TextureHelper from "../../system/utility/TextureHelper.js";
 import SkyCube from "../../system/component/SkyCube.js";
 
 /**
@@ -31,7 +30,7 @@ class StoneMonument extends WebGLPerspectiveOrbit {
    */
   static options = {
     cameraPerspectiveFov: 45,
-    cameraPosition: [-2, 8, 25],
+    cameraPosition: [2, 8, 25],
     controlsOrbitParameters: {
       enableDamping: true,
       maxDistance: 50,
@@ -78,10 +77,10 @@ class StoneMonument extends WebGLPerspectiveOrbit {
     });
 
     textures.groundColor.colorSpace = SRGBColorSpace;
-    this.setTextureRepeatWrap(textures.groundColor, 4, 4, true, true);
-    this.setTextureRepeatWrap(textures.groundARM, 4, 4, true, true);
-    this.setTextureRepeatWrap(textures.groundNormal, 4, 4, true, true);
-    this.setTextureRepeatWrap(textures.groundDisplacement, 4, 4, true, true);
+    TextureHelper.setRepeatWrap(textures.groundColor, 4, 4, true, true);
+    TextureHelper.setRepeatWrap(textures.groundARM, 4, 4, true, true);
+    TextureHelper.setRepeatWrap(textures.groundNormal, 4, 4, true, true);
+    TextureHelper.setRepeatWrap(textures.groundDisplacement, 4, 4, true, true);
 
     const ground = new Mesh(
       new RingGeometry(0, 30, 64, 100),
@@ -138,7 +137,7 @@ class StoneMonument extends WebGLPerspectiveOrbit {
     }
 
     textures.stoneColor.colorSpace = SRGBColorSpace;
-    this.setTextureRepeatWrap(textures.stoneColor, 2, 1, true, true);
+    TextureHelper.setRepeatWrap(textures.stoneColor, 2, 1, true, true);
 
     const stoneSize = {
       width: 7,
@@ -237,7 +236,7 @@ class StoneMonument extends WebGLPerspectiveOrbit {
       rayleigh: 0.055,
       mieCoefficient: 0.1,
       mieDirectionalG: 0.99,
-      elevation: -180,
+      elevation: -90,
       azimuth: -180,
       color: 0xeeeeee,
       intensity: 8,
@@ -252,7 +251,7 @@ class StoneMonument extends WebGLPerspectiveOrbit {
     directionalLight.shadow.camera.top = 32;
     directionalLight.shadow.camera.right = 32;
     directionalLight.shadow.camera.bottom = -32;
-    directionalLight.shadow.camera.left = -64;
+    directionalLight.shadow.camera.left = -32;
     directionalLight.shadow.camera.near = 0.1;
     directionalLight.shadow.camera.far = 128;
     scene.add(directionalLight);
@@ -316,36 +315,6 @@ class StoneMonument extends WebGLPerspectiveOrbit {
     notification.notice(
       "Textures — [Aerial Grass Rock](https://polyhaven.com/a/aerial_grass_rock) | [Cracked Concrete Wall](https://polyhaven.com/a/cracked_concrete_wall) | [Rough Plaster Brick](https://polyhaven.com/a/rough_plaster_brick) | [Brown Mud Leaves 01](https://polyhaven.com/a/brown_mud_leaves_01)"
     );
-  }
-
-  /**
-   * Sets texture repeat pattern and wrapping method.
-   * @param {Texture} texture Texture object instance.
-   * @param {number} repeatX Repeating patterns value in the X direction.
-   * @param {number} repeatY Repeating patterns value in the Y direction.
-   * @param {(boolean|number)} [wrapHorizontal=false] Horizontal wrapping
-   *    method.
-   * @param {(boolean|number)} [wrapVertical=false] Vertical wrapping method.
-   */
-  setTextureRepeatWrap(
-    texture,
-    repeatX,
-    repeatY,
-    wrapHorizontal = false,
-    wrapVertical = false
-  ) {
-    texture.repeat.set(repeatX, repeatY);
-
-    if (wrapHorizontal === true) {
-      texture.wrapS = RepeatWrapping;
-    } else if (typeof wrapHorizontal === "number") {
-      texture.wrapS = wrapHorizontal;
-    }
-    if (wrapVertical === true) {
-      texture.wrapT = RepeatWrapping;
-    } else if (typeof wrapVertical === "number") {
-      texture.wrapT = wrapVertical;
-    }
   }
 }
 

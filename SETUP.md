@@ -1,4 +1,4 @@
-# Web3D Playground ▶ Setup
+# Web3D Playground ▸ Setup
 
 > Local environment setup.
 

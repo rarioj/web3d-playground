@@ -76,7 +76,8 @@ class MeshParticles extends WebGLPerspectiveOrbit {
     this.#geometries.push(new TorusGeometry(2, 0.5, 16, 16));
     this.#geometries.push(new TorusKnotGeometry(1, 0.1, 64, 6, 1, 4));
 
-    const loader = new Loader(this.getRegistry());
+    const registry = this.getRegistry();
+    const loader = new Loader(registry);
 
     const path = "./public/common/texture/matcap";
     const textures = await loader.loadTextures({
@@ -110,7 +111,6 @@ class MeshParticles extends WebGLPerspectiveOrbit {
     };
     this.generateMeshParticles(this.#state);
 
-    const registry = this.getRegistry();
     if (registry.has("debug.gui")) {
       this.#setupGuiControllers(
         registry.get("debug.gui").addFolder("Mesh Particles").close()

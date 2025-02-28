@@ -29,7 +29,7 @@ class OldComputer extends WebGLPerspectiveOrbit {
       enableDamping: true,
       maxDistance: 75,
       maxPolarAngle: Math.PI * 0.5 - 0.1,
-      minDistance: 1,
+      minDistance: 25,
     },
   };
 
@@ -69,7 +69,7 @@ class OldComputer extends WebGLPerspectiveOrbit {
       "computer",
       `${path}/gltf/ibm_3178.glb`
     );
-    computer.scene.position.y = -15;
+    computer.scene.position.y = -13;
     scene.add(computer.scene);
 
     const monitorScreen = computer.scene.getObjectByName("ibm_3178_2");
@@ -88,7 +88,8 @@ class OldComputer extends WebGLPerspectiveOrbit {
     const gameContext = gameCanvas.getContext("2d");
     const gameTexture = new CanvasTexture(gameCanvas);
 
-    const videoElement = document.getElementById("video");
+    const videoElement = this.createVideo();
+    document.body.appendChild(videoElement);
     const videoTexture = new VideoTexture(videoElement);
     videoTexture.colorSpace = SRGBColorSpace;
 
@@ -118,9 +119,7 @@ class OldComputer extends WebGLPerspectiveOrbit {
     notification.notice(
       "Textures — [Aerodynamics Workshop](https://polyhaven.com/a/aerodynamics_workshop)"
     );
-    notification.notice(
-      "3D Model — [IBM 3178](https://sketchfab.com/3d-models/ibm-3178-891ae8149d8547a5971381237d13e2e6)"
-    );
+    notification.notice("3D Model — [IBM 3178](https://skfb.ly/6XWzr)");
     notification.notice(
       "Random Images — [Lorem Picsum](https://picsum.photos/)"
     );
@@ -162,6 +161,11 @@ class OldComputer extends WebGLPerspectiveOrbit {
     this.#state.imageTexture = texture;
     this.#screen.map = texture;
   }
+
+  /**
+   * Initializes the game.
+   */
+  initGame() {}
 
   /**
    * Plays a game on the computer.
@@ -214,6 +218,31 @@ class OldComputer extends WebGLPerspectiveOrbit {
     } else {
       this.#state.gameInterface.resume();
     }
+  }
+
+  /**
+   * Creates a video player element.
+   * @returns {HTMLVideoElement}
+   */
+  createVideo() {
+    const video = document.createElement("video");
+    video.setAttribute("width", "320");
+    video.setAttribute("loop", true);
+    video.setAttribute("playsinline", true);
+    video.style.display = "none";
+
+    const sourceWebM = document.createElement("source");
+    sourceWebM.type = "video/webm";
+    sourceWebM.src =
+      "./public/old-computer/video/rick-rolled-short-version.webm";
+    video.appendChild(sourceWebM);
+
+    const sourceMp4 = document.createElement("source");
+    sourceMp4.type = "video/mp4";
+    sourceMp4.src = "./public/old-computer/video/rick-rolled-short-version.mp4";
+    video.appendChild(sourceMp4);
+
+    return video;
   }
 
   /**

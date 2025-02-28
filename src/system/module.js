@@ -6,17 +6,17 @@ import DebugStats from "./element/DebugStats.js";
  * @module System
  */
 
-export default (settings = {}) => {
+export default (config = {}) => {
   const registry = new Map();
 
   const query = Object.assign(
     {},
-    settings?.query,
+    config?.query,
     Object.fromEntries(new URL(location).searchParams)
   );
   registry.set("query", query);
 
-  registry.set("system", settings?.system || {});
+  registry.set("system", config?.system || {});
 
   const alert = (() => {
     const {
@@ -27,7 +27,7 @@ export default (settings = {}) => {
       alertDefaultColor: defaultColor = "dimgray",
       alertDefaultDuration: defaultDuration = 5,
       alertStyles: styles = {},
-    } = settings?.system;
+    } = config?.system;
 
     return new Alert({
       id,
@@ -55,7 +55,7 @@ export default (settings = {}) => {
         fontSize: "0.8em",
         top: "unset",
       },
-    } = settings?.system;
+    } = config?.system;
 
     return new Alert({
       id,
@@ -73,14 +73,14 @@ export default (settings = {}) => {
 
   if (Boolean(gui) === true) {
     const debugGui = new DebugGUI(
-      settings?.system?.debugGuiOptions || { title: "GUI Tweak", width: 250 }
+      config?.system?.debugGuiOptions || { title: "GUI Tweak", width: 250 }
     );
     registry.set("debug.gui", debugGui.getInstance());
   }
 
   if (Boolean(stats) === true) {
     const debugStats = new DebugStats(
-      settings?.system?.debugStatsContainer || document.body
+      config?.system?.debugStatsContainer || document.body
     );
     registry.set("debug.stats", debugStats.getInstance());
   }

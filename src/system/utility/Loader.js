@@ -1,10 +1,4 @@
-import {
-  Cache,
-  DefaultLoadingManager,
-  Object3D,
-  Texture,
-  TextureLoader,
-} from "three";
+import { Cache, DefaultLoadingManager, Texture, TextureLoader } from "three";
 import { Font, FontLoader } from "three/addons/loaders/FontLoader.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { RGBELoader } from "three/addons/loaders/RGBELoader.js";
@@ -211,7 +205,7 @@ class Loader {
    * Loads a glTF model.
    * @param {string} name Model name.
    * @param {string} url Model location URL.
-   * @returns {Promise<Object3D>} Promised 3D object model.
+   * @returns {Promise<Object>} Promised 3D object model.
    * @async
    * @see {@link https://threejs.org/docs/#examples/en/loaders/GLTFLoader|GLTFLoader}
    * @see {@link https://threejs.org/docs/#api/en/core/Object3D|Object3D}
@@ -237,7 +231,7 @@ class Loader {
    * Loads multiple glTF models.
    * @param {Object<string, string>} urls Object with model name (key) and model
    *    location URL (value).
-   * @returns {Promise<Object<string, Object3D>>} Promised object with model
+   * @returns {Promise<Object<string, Object>>} Promised object with model
    *    name (key) and the 3D object model (value).
    * @async
    */

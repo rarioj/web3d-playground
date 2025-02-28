@@ -33,11 +33,12 @@ class ValentinesDay extends WebGLPerspectiveOrbit {
   async prepare() {
     const text = "Happy Valentine's Day!";
 
+    const registry = this.getRegistry();
     const scene = this.getScene();
     const group = new Group();
     scene.add(group);
 
-    const loader = new Loader(this.getRegistry());
+    const loader = new Loader(registry);
 
     const matcapPath = "./public/valentines-day/matcap";
     const matcap = await loader.loadTexture(
@@ -102,7 +103,7 @@ class ValentinesDay extends WebGLPerspectiveOrbit {
       group.rotation.y += delta;
     });
 
-    const notification = this.getRegistry().get("notification");
+    const notification = registry.get("notification");
     notification.notice("<strong>Valentine's Day</strong>");
     notification.notice(
       "A text geometry, a heart-shaped extruded geometry, for a Valentine's Day special."

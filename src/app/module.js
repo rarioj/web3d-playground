@@ -5,6 +5,7 @@ import StoneMonument from "./showcase/StoneMonument.js";
 import DesertedBoat from "./showcase/DesertedBoat.js";
 import ValentinesDay from "./showcase/ValentinesDay.js";
 import OldComputer from "./showcase/OldComputer.js";
+import CarShowroom from "./pages/CarShowroom.js";
 
 /**
  * @module App
@@ -18,4 +19,5 @@ export default [
   DesertedBoat, // 4
   ValentinesDay, // 5
   OldComputer, // 6
+  CarShowroom, // 7
 ];
