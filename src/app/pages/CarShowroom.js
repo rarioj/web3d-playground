@@ -280,7 +280,8 @@ class CarShowroom extends WebGLPerspectiveOrbit {
       (elements) => {
         elements.forEach((element) => {
           if (element.isIntersecting) {
-            // console.log(element.target.dataset.action);
+            const page = 10 * parseInt(element.target.dataset.index);
+            gsap.to("header", { duration: 1, width: `${page}%` });
             this.triggerAction(element.target.dataset.action);
           }
         });
@@ -298,7 +299,6 @@ class CarShowroom extends WebGLPerspectiveOrbit {
     const buttons = document.querySelectorAll("button");
     [...buttons].forEach((button) => {
       button.onclick = () => {
-        // console.log(button.dataset.action);
         this.triggerAction(button.dataset.action);
       };
     });
