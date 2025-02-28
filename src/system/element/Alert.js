@@ -90,18 +90,18 @@ class Alert {
     this.#element.style.borderRadius = "0.4em";
     this.#element.style.boxShadow = "0.4em 0.4em 0.8em black";
     this.#element.style.color = "white";
+    this.#element.style.display = "none";
     this.#element.style.fontFamily = "monospace";
     this.#element.style.fontSize = "0.6em";
     this.#element.style.left = "0";
     this.#element.style.lineHeight = "1.6em";
     this.#element.style.margin = "1.6em";
-    this.#element.style.opacity = "0";
+    this.#element.style.opacity = "0.8";
     this.#element.style.overflow = "hidden";
     this.#element.style.padding = "1.6em";
     this.#element.style.position = "fixed";
     this.#element.style.textShadow = "0.1em 0.1em black";
     this.#element.style.top = "0";
-    this.#element.style.transition = "500ms opacity ease";
     this.#element.style.width = "calc(100% - 6.4em)";
     this.#element.style.zIndex = "100";
 
@@ -136,7 +136,7 @@ class Alert {
    * Hides the alert.
    */
   hide() {
-    this.#element.style.opacity = "0";
+    this.#element.style.display = "none";
     this.#messages = [];
 
     clearTimeout(this.#timeoutId);
@@ -172,6 +172,7 @@ class Alert {
 
     this.#element.innerHTML = this.#messages.join("<br />");
     this.#element.style.backgroundImage = `linear-gradient(90deg, ${color}, ${width}%, black)`;
+    this.#element.style.display = "block";
     this.#element.style.opacity = "0.8";
 
     clearTimeout(this.#timeoutId);

@@ -127,7 +127,7 @@ class CarShowroom extends WebGLPerspectiveOrbit {
     const ambientLight = new AmbientLight(0xffffff, 0.25);
     scene.add(ambientLight);
 
-    this.#light = new SpotLight(0xffffff, 24, 12, Math.PI * 0.065, 0.1, 0.025);
+    this.#light = new SpotLight(0xffffff, 24, 12, Math.PI * 0.065, 0.1, 0.015);
     this.#light.position.y = 10;
     this.#light.castShadow = true;
     this.#light.shadow.mapSize.width = 16;
@@ -184,7 +184,7 @@ class CarShowroom extends WebGLPerspectiveOrbit {
         }
         this.#actions.resetAnimation();
         gsap.to(controls.target, { duration: 1, x: -3 });
-        gsap.to(camera.position, { duration: 1, x: -3, y: 3, z: 3 });
+        gsap.to(camera.position, { duration: 1, x: -3, y: 3, z: 4 });
         gsap.to(this.#light.target.position, { duration: 1, x: -3 });
         scene.add(this.#light.target);
       },
@@ -196,7 +196,7 @@ class CarShowroom extends WebGLPerspectiveOrbit {
         }
         this.#actions.resetAnimation();
         gsap.to(controls.target, { duration: 1, x: 0 });
-        gsap.to(camera.position, { duration: 1, x: 0, y: 3, z: 3 });
+        gsap.to(camera.position, { duration: 1, x: 0, y: 3, z: 4 });
         gsap.to(this.#light.target.position, { duration: 1, x: 0 });
         scene.add(this.#light.target);
       },
@@ -208,7 +208,7 @@ class CarShowroom extends WebGLPerspectiveOrbit {
         }
         this.#actions.resetAnimation();
         gsap.to(controls.target, { duration: 1, x: 3 });
-        gsap.to(camera.position, { duration: 1, x: 3, y: 3, z: 3 });
+        gsap.to(camera.position, { duration: 1, x: 3, y: 3, z: 4 });
         gsap.to(this.#light.target.position, { duration: 1, x: 3 });
         scene.add(this.#light.target);
       },

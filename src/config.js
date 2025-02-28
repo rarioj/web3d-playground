@@ -24,7 +24,7 @@ export default {
     // notificationContainer: document.body,
     // notificationLineCount: 10,
     // notificationDefaultColor: "dimgray",
-    // notificationDefaultDuration: 30,
+    // notificationDefaultDuration: 10,
     // notificationStyles: { bottom: "0", fontFamily: "sans-serif", fontSize: "0.8em", top: "unset" },
     //
     /* Debugging */

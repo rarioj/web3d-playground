@@ -48,7 +48,7 @@ export default (config = {}) => {
       notificationContainer: container = document.body,
       notificationLineCount: lineCount = 10,
       notificationDefaultColor: defaultColor = "dimgray",
-      notificationDefaultDuration: defaultDuration = 30,
+      notificationDefaultDuration: defaultDuration = 10,
       notificationStyles: styles = {
         bottom: "0",
         fontFamily: "sans-serif",
