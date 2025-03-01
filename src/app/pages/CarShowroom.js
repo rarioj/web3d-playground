@@ -1,5 +1,5 @@
 import {
-  AmbientLight,
+  DirectionalLight,
   Mesh,
   MeshStandardMaterial,
   PCFSoftShadowMap,
@@ -124,10 +124,7 @@ class CarShowroom extends WebGLPerspectiveOrbit {
       car3animation,
     };
 
-    const ambientLight = new AmbientLight(0xffffff, 0.25);
-    scene.add(ambientLight);
-
-    this.#light = new SpotLight(0xffffff, 24, 12, Math.PI * 0.065, 0.1, 0.015);
+    this.#light = new SpotLight(0xffffff, 24, 14, Math.PI * 0.065, 0.1, 0.01);
     this.#light.position.y = 10;
     this.#light.castShadow = true;
     this.#light.shadow.mapSize.width = 16;
@@ -153,7 +150,11 @@ class CarShowroom extends WebGLPerspectiveOrbit {
     });
 
     const alert = registry.get("alert");
+
     const camera = this.getCamera();
+    const directionalLight = new DirectionalLight(0xffffff, 1);
+    camera.add(directionalLight);
+
     const controls = this.getControls();
     controls.target.y = 0.5;
 
