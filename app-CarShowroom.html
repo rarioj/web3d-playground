@@ -6,96 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web3D Playground</title>
     <script src="./src/script.js"></script>
-    <style type="text/css">
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        background-color: black;
-      }
-      header {
-        background-color: purple;
-        height: 3px;
-        left: 0;
-        position: fixed;
-        top: 0;
-        width: 0;
-        z-index: 1;
-      }
-      main {
-        height: 100vh;
-        overflow-y: scroll;
-        scroll-snap-type: y mandatory;
-      }
-      canvas {
-        left: 0;
-        position: fixed;
-        top: 0;
-        z-index: 0;
-      }
-      h1,
-      h2,
-      h3 {
-        font-family: serif;
-      }
-      h1 {
-        font-size: 4em;
-      }
-      h2 {
-        font-size: 3em;
-      }
-      h3 {
-        font-size: 2em;
-      }
-      p {
-        font-size: 1em;
-        max-width: 300px;
-        padding: 1em 0;
-      }
-      section {
-        align-items: center;
-        color: white;
-        font-family: sans-serif;
-        height: 100vh;
-        overflow-y: scroll;
-        position: relative;
-        scroll-snap-align: center;
-        text-shadow: 0.2em 0.2em 0.2em gray;
-        z-index: 2;
-      }
-      section button {
-        border: 0;
-        border-radius: 0.25em;
-        box-shadow: 0.2em 0.2em 0.2em gray;
-        color: black;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 1em;
-        height: 2em;
-        outline: 0;
-        padding: 0 0.5em;
-        width: 2em;
-      }
-      section button.red {
-        background: red;
-      }
-      section button.orange {
-        background: orange;
-      }
-      section button.blue {
-        background: blue;
-      }
-      section div {
-        padding: 0.5em 1em;
-      }
-    </style>
+    <link rel="stylesheet" href="./public/car-showroom/style.css" />
   </head>
   <body>
-    <header></header>
+    <div class="header"></div>
 
     <main>
-      <section data-action="resetPosition" data-index="0">
+      <section data-action="resetPosition">
         <div>
           <h1>Showroom</h1>
           <p
@@ -105,7 +22,7 @@
         </div>
       </section>
 
-      <section data-action="car1focus" data-index="1">
+      <section data-action="car1focus">
         <div>
           <h2>Model #1</h2>
           <p
@@ -121,7 +38,7 @@
           >
         </div>
       </section>
-      <section data-action="car1interior" data-index="2">
+      <section data-action="car1interior">
         <div>
           <h3>Interior</h3>
           <p
@@ -130,7 +47,7 @@
           >
         </div>
       </section>
-      <section data-action="car1parts" data-index="3">
+      <section data-action="car1parts">
         <div>
           <h3>Auto Parts</h3>
           <p
@@ -141,7 +58,7 @@
         </div>
       </section>
 
-      <section data-action="car2focus" data-index="4">
+      <section data-action="car2focus">
         <div>
           <h2>Model #2</h2>
           <p
@@ -157,7 +74,7 @@
           >
         </div>
       </section>
-      <section data-action="car2interior" data-index="5">
+      <section data-action="car2interior">
         <div>
           <h3>Interior</h3>
           <p
@@ -166,7 +83,7 @@
           >
         </div>
       </section>
-      <section data-action="car2parts" data-index="6">
+      <section data-action="car2parts">
         <div>
           <h3>Auto Parts</h3>
           <p
@@ -177,7 +94,7 @@
         </div>
       </section>
 
-      <section data-action="car3focus" data-index="7">
+      <section data-action="car3focus">
         <div>
           <h2>Model #3</h2>
           <p
@@ -193,7 +110,7 @@
           >
         </div>
       </section>
-      <section data-action="car3interior" data-index="8">
+      <section data-action="car3interior">
         <div>
           <h3>Interior</h3>
           <p
@@ -202,7 +119,7 @@
           >
         </div>
       </section>
-      <section data-action="car3parts" data-index="9">
+      <section data-action="car3parts">
         <div>
           <h3>Auto Parts</h3>
           <p
@@ -213,7 +130,7 @@
         </div>
       </section>
 
-      <section data-action="resetPosition" data-index="10">
+      <section data-action="resetPosition">
         <div>
           <h2>Buy Now!</h2>
           <p

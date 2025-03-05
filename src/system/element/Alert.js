@@ -92,7 +92,7 @@ class Alert {
     this.#element.style.color = "white";
     this.#element.style.display = "none";
     this.#element.style.fontFamily = "monospace";
-    this.#element.style.fontSize = "0.6em";
+    this.#element.style.fontSize = "0.4em";
     this.#element.style.left = "0";
     this.#element.style.lineHeight = "1.6em";
     this.#element.style.margin = "1.6em";

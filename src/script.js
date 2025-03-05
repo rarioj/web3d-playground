@@ -4,6 +4,7 @@
     emulators: "8.3.3",
     emulatorsUi: "0.73.9",
     gsap: "3.12.7",
+    rapier3d: "0.14.0",
   };
 
   const query = Object.fromEntries(new URL(location).searchParams);
@@ -15,6 +16,12 @@
   map[
     "three/addons/"
   ] = `https://cdn.jsdelivr.net/npm/three@${version.threejs}/examples/jsm/`;
+
+  if (query?.rapier3d) {
+    map[
+      "@dimforge/rapier3d"
+    ] = `https://cdn.jsdelivr.net/npm/@dimforge/rapier3d-compat@${version.rapier3d}/rapier.es.min.js`;
+  }
 
   const importmap = document.createElement("script");
   importmap.type = "importmap";

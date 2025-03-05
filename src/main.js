@@ -14,15 +14,17 @@ import appList from "./app/module.js";
     }
     registry.set("app.index", app);
 
+    const imported = await import(`./app/${appList[app]}`);
+
+    const classname = imported.default;
+    registry.set("app.classname", classname);
+
     const options = Object.assign(
       {},
       config?.options || {},
-      appList[app]?.options || {}
+      imported.default?.options || {}
     );
     registry.set("app.options", options);
-
-    const classname = appList[app];
-    registry.set("app.classname", classname);
 
     const instance = new classname({ registry, ...options });
     document.title = `Web3D Playground ▸ Apps ▸ ${instance.constructor.name}`;

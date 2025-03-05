@@ -14,6 +14,12 @@ class WebGLPerspectiveOrbit extends WebGLPerspective {
   #controls;
 
   /**
+   * Orbit controls screen-update callback ID.
+   * @type {number}
+   */
+  #orbitControlsUpdateIndex;
+
+  /**
    * Instantiates a new WebGL renderer object with a Perspective camera and
    *    Orbit controls.
    * @param {Object} [options] Screen options.
@@ -33,7 +39,7 @@ class WebGLPerspectiveOrbit extends WebGLPerspective {
       Object.assign(this.#controls, parameters);
     }
 
-    this.addScreenUpdateEvent((delta) => this.#controls.update(delta));
+    this.enableOrbitControls();
   }
 
   /**
@@ -43,6 +49,26 @@ class WebGLPerspectiveOrbit extends WebGLPerspective {
    */
   getControls() {
     return this.#controls;
+  }
+
+  /**
+   * Enables orbit controls.
+   */
+  enableOrbitControls() {
+    this.#controls.enabled = true;
+    this.#orbitControlsUpdateIndex = this.addScreenUpdateEvent((delta) =>
+      this.#controls.update(delta)
+    );
+    // this.#controls.listenToKeyEvents(window);
+  }
+
+  /**
+   * Disables orbit controls.
+   */
+  disableOrbitControls() {
+    this.#controls.enabled = false;
+    this.removeScreenUpdateEvent(this.#orbitControlsUpdateIndex);
+    // this.#controls.stopListenToKeyEvents();
   }
 }
 

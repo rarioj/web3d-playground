@@ -1,23 +1,15 @@
-import RotatingBox from "./showcase/RotatingBox.js";
-import PangramGenerator from "./showcase/PangramGenerator.js";
-import MeshParticles from "./showcase/MeshParticles.js";
-import StoneMonument from "./showcase/StoneMonument.js";
-import DesertedBoat from "./showcase/DesertedBoat.js";
-import ValentinesDay from "./showcase/ValentinesDay.js";
-import OldComputer from "./showcase/OldComputer.js";
-import CarShowroom from "./pages/CarShowroom.js";
-
 /**
  * @module App
  */
 
 export default [
-  RotatingBox, // 0
-  PangramGenerator, // 1
-  MeshParticles, // 2
-  StoneMonument, // 3
-  DesertedBoat, // 4
-  ValentinesDay, // 5
-  OldComputer, // 6
-  CarShowroom, // 7
+  "showcase/RotatingBox.js", // 0
+  "showcase/PangramGenerator.js", // 1
+  "showcase/MeshParticles.js", // 2
+  "showcase/StoneMonument.js", // 3
+  "showcase/DesertedBoat.js", // 4
+  "showcase/ValentinesDay.js", // 5
+  "showcase/OldComputer.js", // 6
+  "pages/CarShowroom.js", // 7
+  "showcase/ApartmentRoom.js", // 8
 ];

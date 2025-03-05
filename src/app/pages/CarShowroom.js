@@ -6,6 +6,7 @@ import {
   PlaneGeometry,
   SpotLight,
 } from "three";
+import { GUI } from "three/addons/libs/lil-gui.module.min.js";
 import WebGLPerspectiveOrbit from "../../screen/webgl/WebGLPerspectiveOrbit.js";
 import Loader from "../../system/utility/Loader.js";
 import ModelHelper from "../../system/utility/ModelHelper.js";
@@ -18,6 +19,25 @@ import ModelAnimation from "../../system/utility/ModelAnimation.js";
  * @extends module:Screen.WebGLPerspectiveOrbit
  */
 class CarShowroom extends WebGLPerspectiveOrbit {
+  /**
+   * App options override.
+   * @type {Object}
+   * @static
+   */
+  static options = {
+    cameraPerspectiveFov: 45,
+    cameraPosition: [0, 10, 10],
+    controlsOrbitParameters: {
+      autoRotate: false,
+      autoRotateSpeed: 4,
+      enableDamping: true,
+      enableZoom: false,
+      maxDistance: 10,
+      maxPolarAngle: Math.PI * 0.5 - 0.1,
+      minDistance: 0.25,
+    },
+  };
+
   /**
    * Light shining on the car models.
    * @type {SpotLight}
@@ -41,25 +61,6 @@ class CarShowroom extends WebGLPerspectiveOrbit {
    * @type {Object}
    */
   #actions;
-
-  /**
-   * App options override.
-   * @type {Object}
-   * @static
-   */
-  static options = {
-    cameraPerspectiveFov: 45,
-    cameraPosition: [0, 10, 10],
-    controlsOrbitParameters: {
-      autoRotate: false,
-      autoRotateSpeed: 4,
-      enableDamping: true,
-      enableZoom: false,
-      maxDistance: 10,
-      maxPolarAngle: Math.PI * 0.5 - 0.1,
-      minDistance: 0.25,
-    },
-  };
 
   /**
    * Prepares the app.
@@ -281,8 +282,8 @@ class CarShowroom extends WebGLPerspectiveOrbit {
       (elements) => {
         elements.forEach((element) => {
           if (element.isIntersecting) {
-            const page = 10 * parseInt(element.target.dataset.index);
-            gsap.to("header", { duration: 1, width: `${page}%` });
+            const page = 10 * parseInt(element.target.dataset.page);
+            gsap.to("div.header", { duration: 1, width: `${page}%` });
             this.triggerAction(element.target.dataset.action);
           }
         });
@@ -293,9 +294,10 @@ class CarShowroom extends WebGLPerspectiveOrbit {
         threshold: 0,
       }
     );
-    document
-      .querySelectorAll("section")
-      .forEach((element) => observer.observe(element));
+    document.querySelectorAll("section").forEach((element, index) => {
+      element.dataset.page = index;
+      observer.observe(element);
+    });
 
     const buttons = document.querySelectorAll("button");
     [...buttons].forEach((button) => {

@@ -13,6 +13,7 @@
 | [Deserted Boat](./app.html?app=4&gui=1&stats=1) ~ Another implementation of basic geometries with standard textured materials. The flag is simple vertex/fragment shaders written in GLSL. The ocean/water effect is more advanced shaders. | ![Deserted Boat](./public/screenshot/DesertedBoat.webp)         |
 | [Valentine's Day](./app.html?app=5) ~ A text geometry, a heart-shaped extruded geometry, for a Valentine's Day special.                                                                                                                     | ![Valentine's Day](./public/screenshot/ValentinesDay.webp)      |
 | [Old Computer](./app.html?&app=6&gui=1&emulators=1) ~ A glTF model of an old computer. It's a functioning computer, too. What can be rendered on the monitor screen?                                                                        | ![Old Computer](./public/screenshot/OldComputer.webp)           |
+| [Apartment Room](./app.html?&app=8&gsap=1&rapier3d=1) ~ A tour of a simple apartment room. An example of switching between Orbit and PointerLock controls. Uses the Rapier 3D physics engine for wall collision detection.                  | ![Apartment Room](./public/screenshot/ApartmentRoom.webp)       |
 
 ## Pages
 
@@ -39,3 +40,5 @@
 - [Prince of Persia (1989)](https://dos.zone/prince-of-persia-1990/) from DOS Zone
 - [Rick Rolled (Short Version)](https://www.youtube.com/watch?v=BBJa32lCaaY) from YouTube
 - [Low-poly cartoon style car 01](https://skfb.ly/oxu87) | [Low-poly cartoon style car 02](https://skfb.ly/ovLQT) | [Low-poly cartoon style car 03](https://skfb.ly/owUr9) by arturs.vitas are licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
+- [Apartment plan](https://skfb.ly/oPnHH) by Optic_idealist is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
+- [WALL-E Intro](https://www.youtube.com/watch?v=nLx_7wEmwms) from YouTube

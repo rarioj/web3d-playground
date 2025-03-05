@@ -6,6 +6,7 @@ import {
   SRGBColorSpace,
   VideoTexture,
 } from "three";
+import { GUI } from "three/addons/libs/lil-gui.module.min.js";
 import WebGLPerspectiveOrbit from "../../screen/webgl/WebGLPerspectiveOrbit.js";
 import Loader from "../../system/utility/Loader.js";
 

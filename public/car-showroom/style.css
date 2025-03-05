@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+}
+
+.header {
+  background-color: purple;
+  height: 3px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 0;
+  z-index: 1;
+}
+
+main {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+canvas {
+  left: 0;
+  position: fixed;
+  top: 0;
+  z-index: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+p {
+  font-size: 1em;
+  max-width: 300px;
+  padding: 1em 0;
+}
+
+section {
+  align-items: center;
+  color: white;
+  font-family: sans-serif;
+  height: 100vh;
+  overflow-y: scroll;
+  position: relative;
+  scroll-snap-align: center;
+  text-shadow: 0.2em 0.2em 0.2em gray;
+  z-index: 2;
+}
+
+section button {
+  border: 0;
+  border-radius: 0.25em;
+  box-shadow: 0.2em 0.2em 0.2em gray;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  height: 2em;
+  outline: 0;
+  padding: 0 0.5em;
+  width: 2em;
+}
+
+section button.red {
+  background: red;
+}
+
+section button.orange {
+  background: orange;
+}
+
+section button.blue {
+  background: blue;
+}
+
+section div {
+  padding: 0.5em 1em;
+}

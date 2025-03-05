@@ -1,3 +1,5 @@
+import { Mesh } from "three";
+
 /**
  * Model utility methods.
  * @memberof module:System
@@ -16,6 +18,21 @@ class ModelHelper {
         child.receiveShadow = receive;
       }
     });
+  }
+
+  /**
+   * Gets all child meshes from a given model.
+   * @param {Object} model 3D object model.
+   * @returns {Mesh[]}
+   */
+  static getMeshes(model) {
+    const meshes = [];
+    model.scene.traverse((child) => {
+      if (child.isMesh) {
+        meshes.push(child);
+      }
+    });
+    return meshes;
   }
 }
 
