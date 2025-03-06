@@ -14,7 +14,6 @@ import {
   PointLight,
   PositionalAudio,
   RingGeometry,
-  SphereGeometry,
   SRGBColorSpace,
   Vector3,
   VideoTexture,
@@ -22,7 +21,6 @@ import {
 } from "three";
 import { PointerLockControls } from "three/addons/controls/PointerLockControls.js";
 import { Reflector } from "three/addons/objects/Reflector.js";
-import { PositionalAudioHelper } from "three/addons/helpers/PositionalAudioHelper.js";
 import RAPIER from "@dimforge/rapier3d";
 import WebGLPerspectiveOrbit from "../../screen/webgl/WebGLPerspectiveOrbit.js";
 import Loader from "../../system/utility/Loader.js";
@@ -111,11 +109,14 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
     await RAPIER.init();
     this.#physics = new RAPIER.World(new Vector3(0, 0, 0));
 
-    const drone = new Mesh(
-      new SphereGeometry(0.05, 32, 32),
-      new MeshStandardMaterial({ color: "red" })
-    );
+    const models = await loader.loadGLTFModels({
+      drone: `${path}/gltf/happy_drone.glb`,
+      plan: `${path}/gltf/apartment_plan.glb`,
+    });
+
+    const drone = models.drone.scene;
     drone.castShadow = true;
+    drone.scale.set(0.8, 0.8, 0.8);
     const droneColliderDesc = RAPIER.ColliderDesc.ball(0.05);
     const droneBodyDesc = new RAPIER.RigidBodyDesc(
       RAPIER.RigidBodyType.KinematicPositionBased
@@ -130,18 +131,15 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
     const droneController = this.#physics.createCharacterController(0.25);
     scene.add(drone);
 
-    const model = await loader.loadGLTFModel(
-      "plan",
-      `${path}/gltf/apartment_plan.glb`
-    );
-    const modelBox3 = new Box3().setFromObject(model.scene);
-    const modelCenter = modelBox3.getCenter(new Vector3());
-    model.scene.position.set(-modelCenter.x, -modelCenter.y, -modelCenter.z);
-    ModelHelper.setShadow(model);
-    model.scene.updateMatrixWorld(true);
-    scene.add(model.scene);
+    const plan = models.plan.scene;
+    const planBox3 = new Box3().setFromObject(plan);
+    const planCenter = planBox3.getCenter(new Vector3());
+    plan.position.set(-planCenter.x, -planCenter.y, -planCenter.z);
+    ModelHelper.setShadow(models.plan);
+    plan.updateMatrixWorld(true);
+    scene.add(plan);
 
-    const wall = model.scene.getObjectByName("Object_5");
+    const wall = plan.getObjectByName("Object_5");
     this.applyCollider(wall, {
       scale: { x: 1.064, y: 1.064, z: 1.064 },
       translate: { x: 0, y: -1.4, z: -0.41 },
@@ -173,10 +171,10 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
       `${path}/image/qrcode.webp`
     );
     qrcode.flipY = false;
-    const painting = model.scene.getObjectByName("Object_81");
+    const painting = plan.getObjectByName("Object_81");
     painting.material.map = qrcode;
 
-    const television = model.scene.getObjectByName("Object_66");
+    const television = plan.getObjectByName("Object_66");
     television.material.color = null;
     television.material.side = FrontSide;
     television.material.toneMapped = false;
@@ -245,18 +243,25 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
 
     // scene.add(this.getCollisionDetectionLines());
 
-    this.addScreenUpdateEvent((delta, elapsed) => {
+    this.addScreenUpdateEvent((delta) => {
       if (pointerControls.enabled && pointerControls.isLocked) {
-        const facing = new Vector3();
-        pointerControls.getDirection(facing);
-        facing.y = 0;
-        facing.normalize();
+        const cameraDirection = new Vector3();
+        const droneDirection = new Vector3();
+        pointerControls.getDirection(cameraDirection);
+        pointerControls.getDirection(droneDirection);
+        cameraDirection.y = 0;
+        cameraDirection.normalize();
+        droneDirection.normalize();
 
         const movement = new Vector3();
         movement.x =
-          (facing.x * direction.z + facing.z * direction.x) * moveSpeed * delta;
+          (cameraDirection.x * direction.z + cameraDirection.z * direction.x) *
+          moveSpeed *
+          delta;
         movement.z =
-          (facing.z * direction.z - facing.x * direction.x) * moveSpeed * delta;
+          (cameraDirection.z * direction.z - cameraDirection.x * direction.x) *
+          moveSpeed *
+          delta;
 
         this.#physics.timestep = delta;
         this.#physics.step();
@@ -271,6 +276,7 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
 
         camera.position.x = drone.position.x = newPosition.x;
         camera.position.z = drone.position.z = newPosition.z;
+        drone.lookAt(drone.position.clone().add(droneDirection));
       }
     });
 
@@ -359,9 +365,6 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
     positionalAudio.setRefDistance(1);
     positionalAudio.setDirectionalCone(180, 230, 0.1);
     television.add(positionalAudio);
-
-    const helper = new PositionalAudioHelper(positionalAudio, 0);
-    positionalAudio.add(helper);
   }
 }
 

@@ -41,4 +41,5 @@
 - [Rick Rolled (Short Version)](https://www.youtube.com/watch?v=BBJa32lCaaY) from YouTube
 - [Low-poly cartoon style car 01](https://skfb.ly/oxu87) | [Low-poly cartoon style car 02](https://skfb.ly/ovLQT) | [Low-poly cartoon style car 03](https://skfb.ly/owUr9) by arturs.vitas are licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
 - [Apartment plan](https://skfb.ly/oPnHH) by Optic_idealist is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
+- [Happy Drone](https://skfb.ly/ozI6J) by rick_merks is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
 - [WALL-E Intro](https://www.youtube.com/watch?v=nLx_7wEmwms) from YouTube
