@@ -90,7 +90,6 @@ class OldComputer extends WebGLPerspectiveOrbit {
     const gameTexture = new CanvasTexture(gameCanvas);
 
     const videoElement = this.createVideo();
-    document.body.appendChild(videoElement);
     const videoTexture = new VideoTexture(videoElement);
     videoTexture.colorSpace = SRGBColorSpace;
 
@@ -227,9 +226,9 @@ class OldComputer extends WebGLPerspectiveOrbit {
    */
   createVideo() {
     const video = document.createElement("video");
-    video.setAttribute("width", "320");
-    video.setAttribute("loop", true);
-    video.setAttribute("playsinline", true);
+    video.width = "320";
+    video.loop = true;
+    video.playsInline = true;
     video.style.display = "none";
 
     const sourceWebM = document.createElement("source");
@@ -242,6 +241,8 @@ class OldComputer extends WebGLPerspectiveOrbit {
     sourceMp4.type = "video/mp4";
     sourceMp4.src = "./public/old-computer/video/rick-rolled-short-version.mp4";
     video.appendChild(sourceMp4);
+
+    document.body.appendChild(video);
 
     return video;
   }

@@ -32,7 +32,7 @@ import ModelHelper from "../../system/utility/ModelHelper.js";
  * A tour of a simple apartment room. Demonstrates switching between Orbit and
  *    PointerLock controls. Uses the Rapier 3D physics engine for wall collision
  *    detection. PositionalAudio for spatial sound experience. Reflection on
- *    bathroom mirrors.
+ *    bathroom mirrors. [Desktop only]
  * @memberof module:App
  * @extends module:Screen.WebGLPerspectiveOrbit
  */
@@ -176,12 +176,6 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
     const painting = model.scene.getObjectByName("Object_81");
     painting.material.map = qrcode;
 
-    const videoElement = this.createVideo();
-    document.body.appendChild(videoElement);
-    const videoTexture = new VideoTexture(videoElement);
-    videoTexture.colorSpace = SRGBColorSpace;
-    videoTexture.flipY = false;
-
     const television = model.scene.getObjectByName("Object_66");
     television.material.color = null;
     television.material.side = FrontSide;
@@ -189,29 +183,15 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
     television.material.roughness = 0.8;
     television.material.emissive = null;
     television.material.emissiveMap = null;
-    television.material.map = videoTexture;
-
-    const listener = new AudioListener();
-    camera.add(listener);
-    const positionalAudio = new PositionalAudio(listener);
-    positionalAudio.setMediaElementSource(videoElement);
-    positionalAudio.setRefDistance(1);
-    positionalAudio.setDirectionalCone(180, 230, 0.1);
-    television.add(positionalAudio);
-
-    const helper = new PositionalAudioHelper(positionalAudio, 0);
-    positionalAudio.add(helper);
 
     const pointerControls = new PointerLockControls(camera, this.getCanvas());
     pointerControls.addEventListener("lock", () => {
       this.disableOrbitControls();
-      videoElement.play();
-      const position = drone.position;
       gsap.to(camera.position, {
         duration: 1,
-        x: position.x,
-        y: position.y,
-        z: position.z,
+        x: drone.position.x,
+        y: drone.position.y,
+        z: drone.position.z,
       });
     });
     pointerControls.addEventListener("unlock", () => {
@@ -223,10 +203,18 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
     const direction = new Vector3();
     const moveSpeed = 2.5;
 
+    let videoIsPlaying = false;
+
     document.addEventListener("keydown", (event) => {
       switch (event.code) {
         case "Enter":
-          pointerControls.lock();
+          if (!videoIsPlaying) {
+            videoIsPlaying = true;
+            this.playVideo(television);
+          }
+          if (!pointerControls.isLocked) {
+            pointerControls.lock();
+          }
           break;
         case "KeyW":
           direction.z = 1;
@@ -258,10 +246,7 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
     // scene.add(this.getCollisionDetectionLines());
 
     this.addScreenUpdateEvent((delta, elapsed) => {
-      if (
-        pointerControls.enabled === true &&
-        pointerControls.isLocked === true
-      ) {
+      if (pointerControls.enabled && pointerControls.isLocked) {
         const facing = new Vector3();
         pointerControls.getDirection(facing);
         facing.y = 0;
@@ -292,7 +277,7 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
     const notification = registry.get("notification");
     notification.notice("<strong>Apartment Room</strong>");
     notification.notice(
-      "A tour of a simple apartment room. Demonstrates switching between Orbit and PointerLock controls. Uses the Rapier 3D physics engine for wall collision detection. PositionalAudio for spatial sound experience. Reflection on bathroom mirrors."
+      "A tour of a simple apartment room. Demonstrates switching between Orbit and PointerLock controls. Uses the Rapier 3D physics engine for wall collision detection. PositionalAudio for spatial sound experience. Reflection on bathroom mirrors. [Desktop only]"
     );
     notification.notice("3D Model — [Apartment plan](https://skfb.ly/oPnHH)");
     notification.notice(
@@ -343,22 +328,40 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
   }
 
   /**
-   * Creates a video player element.
-   * @returns {HTMLVideoElement}
+   * Plays a video on a television.
+   * @param {Mesh} television Television screen.
    */
-  createVideo() {
+  playVideo(television) {
     const video = document.createElement("video");
-    video.setAttribute("width", "320");
-    video.setAttribute("loop", true);
-    video.setAttribute("playsinline", true);
+    video.width = "320";
+    video.loop = true;
+    video.playsInline = true;
     video.style.display = "none";
 
     const sourceMp4 = document.createElement("source");
     sourceMp4.type = "video/mp4";
-    sourceMp4.src = `./public/apartment-room/video/walle-intro.mp4`;
+    sourceMp4.src = "./public/apartment-room/video/walle-intro.mp4";
     video.appendChild(sourceMp4);
 
-    return video;
+    document.body.appendChild(video);
+
+    const texture = new VideoTexture(video);
+    texture.colorSpace = SRGBColorSpace;
+    texture.flipY = false;
+    television.material.map = texture;
+
+    video.play();
+
+    const listener = new AudioListener();
+    this.getCamera().add(listener);
+    const positionalAudio = new PositionalAudio(listener);
+    positionalAudio.setMediaElementSource(video);
+    positionalAudio.setRefDistance(1);
+    positionalAudio.setDirectionalCone(180, 230, 0.1);
+    television.add(positionalAudio);
+
+    const helper = new PositionalAudioHelper(positionalAudio, 0);
+    positionalAudio.add(helper);
   }
 }
 
