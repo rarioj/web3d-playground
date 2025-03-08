@@ -272,7 +272,14 @@ class DesertedBoat extends WebGLPerspectiveOrbit {
     directionalLight.shadow.camera.far = 128;
     scene.add(directionalLight);
 
-    const notification = registry.get("notification");
+    this.showAppInfo();
+  }
+
+  /**
+   * Shows the app information.
+   */
+  showAppInfo() {
+    const notification = this.getRegistry().get("notification");
     notification.notice("&lt;strong>Deserted Boat&lt;/strong>");
     notification.notice(
       "Another implementation of basic geometries with standard textured materials. The flag is simple vertex/fragment shaders written in GLSL. The ocean/water effect is more advanced shaders."

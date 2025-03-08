@@ -117,14 +117,7 @@ class MeshParticles extends WebGLPerspectiveOrbit {
       );
     }
 
-    const notification = registry.get("notification");
-    notification.notice("<strong>Mesh Particles</strong>");
-    notification.notice(
-      "Thousands of random geometries are rendered with random MatCap materials animated using the simple trigonometric formula."
-    );
-    notification.notice(
-      "MatCaps — [nidorx/matcaps](https://github.com/nidorx/matcaps)"
-    );
+    this.showAppInfo();
   }
 
   /**
@@ -207,6 +200,20 @@ class MeshParticles extends WebGLPerspectiveOrbit {
     gui.add(this.#state, "maxReach").min(10).max(50).step(1);
     gui.add(this.#state, "doubleSide");
     gui.add(this.#state, "regenerate");
+  }
+
+  /**
+   * Shows the app information.
+   */
+  showAppInfo() {
+    const notification = this.getRegistry().get("notification");
+    notification.notice("<strong>Mesh Particles</strong>");
+    notification.notice(
+      "Thousands of random geometries are rendered with random MatCap materials animated using the simple trigonometric formula."
+    );
+    notification.notice(
+      "MatCaps — [nidorx/matcaps](https://github.com/nidorx/matcaps)"
+    );
   }
 }
 

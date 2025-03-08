@@ -22,7 +22,7 @@ class SkyCube {
   #sun;
 
   /**
-   * Light object instance (a Directional Light object).
+   * Light object instance.
    * @type {DirectionalLight}
    */
   #light;
@@ -104,7 +104,7 @@ class SkyCube {
 
   /**
    * Returns the Sky object instance.
-   * @returns {Sky}
+   * @returns {Sky} Sky object instance.
    */
   getSky() {
     return this.#sky;
@@ -112,7 +112,7 @@ class SkyCube {
 
   /**
    * Returns the object instance's current state.
-   * @returns {Object}
+   * @returns {Object} Object instance current state.
    */
   getState() {
     return this.#state;
@@ -120,7 +120,7 @@ class SkyCube {
 
   /**
    * Returns the Sun vector position.
-   * @returns {Vector3}
+   * @returns {Vector3} Sun vector position.
    */
   getSunPosition() {
     return this.#sun;
@@ -142,31 +142,34 @@ class SkyCube {
       this.#light.position.multiplyScalar(this.#state.distance);
       this.#light.intensity = Math.max(0, factor * this.#state.intensity);
     }
+    if (this.#controllers?.elevation) {
+      this.#controllers.elevation.updateDisplay();
+    }
+    if (this.#controllers?.azimuth) {
+      this.#controllers.azimuth.updateDisplay();
+    }
   }
 
   /**
    * Returns the light object instance (a Directional Light object).
-   * @returns {DirectionalLight}
+   * @returns {DirectionalLight} Light object instance.
    */
   getSunLight() {
     return this.#light;
   }
 
   /**
-   * Returns a screen-update callback that moves the Sun position.
+   * Returns a screen-update callback that moves the Sun elevation.
    * @param {number} [speed=3] Elevation-change speed.
-   * @returns {module:Screen.WebGL.ScreenUpdateCallback}
+   * @returns {module:Screen.WebGL.ScreenUpdateCallback} Screen-update callback.
    */
-  getScreenUpdateCallback(speed = 3) {
+  getScreenUpdateSunElevation(speed = 3) {
     return (delta) => {
       this.#state.elevation += delta * speed;
       if (this.#state.elevation > 180) {
         this.#state.elevation = -180;
       }
       this.setSunPosition(this.#state.elevation, this.#state.azimuth);
-      if (this.#controllers?.elevation) {
-        this.#controllers.elevation.updateDisplay();
-      }
     };
   }
 

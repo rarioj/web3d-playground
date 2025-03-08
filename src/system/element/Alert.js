@@ -110,7 +110,7 @@ class Alert {
 
   /**
    * Returns the alert HTML element.
-   * @returns {HTMLElement}
+   * @returns {HTMLElement} HTML element.
    */
   getElement() {
     return this.#element;
@@ -126,7 +126,7 @@ class Alert {
 
   /**
    * Returns the number of message(s) to show at once.
-   * @returns {number}
+   * @returns {number} Number of message(s).
    */
   getLineCount() {
     return this.#lineCount;

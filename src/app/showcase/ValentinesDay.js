@@ -103,7 +103,14 @@ class ValentinesDay extends WebGLPerspectiveOrbit {
       group.rotation.y += delta;
     });
 
-    const notification = registry.get("notification");
+    this.showAppInfo();
+  }
+
+  /**
+   * Shows the app information.
+   */
+  showAppInfo() {
+    const notification = this.getRegistry().get("notification");
     notification.notice("<strong>Valentine's Day</strong>");
     notification.notice(
       "A text geometry, a heart-shaped extruded geometry, for a Valentine's Day special."

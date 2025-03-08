@@ -10,6 +10,6 @@ export default [
   "showcase/DesertedBoat.js", // 4
   "showcase/ValentinesDay.js", // 5
   "showcase/OldComputer.js", // 6
-  "pages/CarShowroom.js", // 7
+  "page/CarShowroom.js", // 7
   "showcase/ApartmentRoom.js", // 8
 ];

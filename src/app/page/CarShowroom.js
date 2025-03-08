@@ -312,14 +312,7 @@ class CarShowroom extends WebGLPerspectiveOrbit {
       );
     }
 
-    const notification = registry.get("notification");
-    notification.notice("<strong>Car Showroom</strong>");
-    notification.notice(
-      "A prototype of a web page on top of a WebGL canvas scene rendering three glTF car models."
-    );
-    notification.notice(
-      "3D Model — [Low-poly cartoon style car 01](https://skfb.ly/oxu87) | [Low-poly cartoon style car 02](https://skfb.ly/ovLQT) | [Low-poly cartoon style car 03](https://skfb.ly/owUr9)"
-    );
+    this.showAppInfo();
   }
 
   /**
@@ -356,6 +349,20 @@ class CarShowroom extends WebGLPerspectiveOrbit {
     gui.add(this.#actions, "car3colorRed");
     gui.add(this.#actions, "car3colorOrange");
     gui.add(this.#actions, "car3colorBlue");
+  }
+
+  /**
+   * Shows the app information.
+   */
+  showAppInfo() {
+    const notification = this.getRegistry().get("notification");
+    notification.notice("<strong>Car Showroom</strong>");
+    notification.notice(
+      "A prototype of a web page on top of a WebGL canvas scene rendering three glTF car models."
+    );
+    notification.notice(
+      "3D Model — [Low-poly cartoon style car 01](https://skfb.ly/oxu87) | [Low-poly cartoon style car 02](https://skfb.ly/ovLQT) | [Low-poly cartoon style car 03](https://skfb.ly/owUr9)"
+    );
   }
 }
 

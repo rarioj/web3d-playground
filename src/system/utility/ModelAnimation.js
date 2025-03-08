@@ -63,7 +63,7 @@ class ModelAnimation {
 
   /**
    * Returns the animation speed.
-   * @returns {number}
+   * @returns {number} Animation speed.
    */
   getSpeed() {
     return this.#speed;
@@ -71,7 +71,7 @@ class ModelAnimation {
 
   /**
    * Sets the animation speed.
-   * @param {number} speed
+   * @param {number} speed Animation speed.
    */
   setSpeed(speed) {
     this.#speed = speed;
@@ -121,7 +121,7 @@ class ModelAnimation {
 
   /**
    * Returns a screen-update callback that animates the model.
-   * @returns {module:Screen.WebGL.ScreenUpdateCallback}
+   * @returns {module:Screen.WebGL.ScreenUpdateCallback} Screen-update callback.
    */
   getScreenUpdateCallback() {
     return (delta) => {

@@ -1,8 +1,6 @@
 # Web3D Playground ▸ Apps
 
-> Please note that these app links below will only work when this page is run on a web server.
-
-## Showcases
+## Showcase Apps
 
 | Name                                                                                                                                                                                                                                                                                                                    | Thumbnail                                                       |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -15,7 +13,7 @@
 | [Old Computer](./app.html?&app=6&gui=1&emulators=1) ~ A glTF model of an old computer. It's a functioning computer, too. What can be rendered on the monitor screen?                                                                                                                                                    | ![Old Computer](./public/screenshot/OldComputer.webp)           |
 | [Apartment Room](./app.html?&app=8&gsap=1&rapier3d=1) ~ A tour of a simple apartment room. Demonstrates switching between Orbit and PointerLock controls. Uses the Rapier 3D physics engine for wall collision detection. PositionalAudio for spatial sound experience. Reflection on bathroom mirrors. *Desktop only*. | ![Apartment Room](./public/screenshot/ApartmentRoom.webp)       |
 
-## Pages
+## Webpage Apps
 
 | Name                                                                                                                                            | Thumbnail                                             |
 | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
@@ -23,23 +21,23 @@
 
 ### Credits & Attributions
 
-- [Noto: A typeface for the world](https://fonts.google.com/noto) from Google Fonts
-- [MatCaps](https://github.com/nidorx/matcaps) by Alex Rodin from GitHub
-- [Aerial Grass Rock](https://polyhaven.com/a/aerial_grass_rock) from Poly Haven
-- [Cracked Concrete Wall](https://polyhaven.com/a/cracked_concrete_wall) from Poly Haven
-- [Rough Plaster Brick](https://polyhaven.com/a/rough_plaster_brick) from Poly Haven
-- [Brown Mud Leaves 01](https://polyhaven.com/a/brown_mud_leaves_01) from Poly Haven
-- [Bark Willow](https://polyhaven.com/a/bark_willow) from Poly Haven
-- [Pine Bark](https://polyhaven.com/a/pine_bark) from Poly Haven
-- [Japanese Sycamore](https://polyhaven.com/a/japanese_sycamore) from Poly Haven
-- [Flag of Jolly Roger (Pirate Flag)](https://vectorflags.com/pirates/his-pir-flag-01) from Vector Flags
-- [Courgette](https://fonts.google.com/specimen/Courgette) by Karolina Lach from Google Fonts
-- [Aerodynamics Workshop](https://polyhaven.com/a/aerodynamics_workshop) from Poly Haven
+- [Noto: A typeface for the world](https://fonts.google.com/noto) from Google Fonts.
+- [MatCaps](https://github.com/nidorx/matcaps) by Alex Rodin from GitHub.
+- [Aerial Grass Rock](https://polyhaven.com/a/aerial_grass_rock) from Poly Haven.
+- [Cracked Concrete Wall](https://polyhaven.com/a/cracked_concrete_wall) from Poly Haven.
+- [Rough Plaster Brick](https://polyhaven.com/a/rough_plaster_brick) from Poly Haven.
+- [Brown Mud Leaves 01](https://polyhaven.com/a/brown_mud_leaves_01) from Poly Haven.
+- [Bark Willow](https://polyhaven.com/a/bark_willow) from Poly Haven.
+- [Pine Bark](https://polyhaven.com/a/pine_bark) from Poly Haven.
+- [Japanese Sycamore](https://polyhaven.com/a/japanese_sycamore) from Poly Haven.
+- [Flag of Jolly Roger (Pirate Flag)](https://vectorflags.com/pirates/his-pir-flag-01) from Vector Flags.
+- [Courgette](https://fonts.google.com/specimen/Courgette) by Karolina Lach from Google Fonts.
+- [Aerodynamics Workshop](https://polyhaven.com/a/aerodynamics_workshop) from Poly Haven.
 - [IBM 3178](https://skfb.ly/6XWzr) by maxdragonn is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
-- [Lorem Picsum](https://picsum.photos/), The Lorem Ipsum for photos
-- [Prince of Persia (1989)](https://dos.zone/prince-of-persia-1990/) from DOS Zone
-- [Rick Rolled (Short Version)](https://www.youtube.com/watch?v=BBJa32lCaaY) from YouTube
+- [Lorem Picsum](https://picsum.photos/), The Lorem Ipsum for photos.
+- [Prince of Persia (1989)](https://dos.zone/prince-of-persia-1990/) from DOS Zone.
+- [Rick Rolled (Short Version)](https://www.youtube.com/watch?v=BBJa32lCaaY) from YouTube.
 - [Low-poly cartoon style car 01](https://skfb.ly/oxu87) | [Low-poly cartoon style car 02](https://skfb.ly/ovLQT) | [Low-poly cartoon style car 03](https://skfb.ly/owUr9) by arturs.vitas are licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
 - [Apartment plan](https://skfb.ly/oPnHH) by Optic_idealist is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
 - [Happy Drone](https://skfb.ly/ozI6J) by rick_merks is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
-- [WALL-E Intro](https://www.youtube.com/watch?v=nLx_7wEmwms) from YouTube
+- [WALL-E Intro](https://www.youtube.com/watch?v=nLx_7wEmwms) from YouTube.

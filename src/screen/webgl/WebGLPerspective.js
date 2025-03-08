@@ -60,7 +60,7 @@ class WebGLPerspective extends WebGL {
 
   /**
    * Returns the scene object instance.
-   * @returns {Scene}
+   * @returns {Scene} Scene object instance.
    * @see {@link https://threejs.org/docs/#api/en/scenes/Scene|Scene}
    */
   getScene() {
@@ -69,7 +69,7 @@ class WebGLPerspective extends WebGL {
 
   /**
    * Returns the camera object instance.
-   * @returns {PerspectiveCamera}
+   * @returns {PerspectiveCamera} Camera object instance.
    * @see {@link https://threejs.org/docs/#api/en/cameras/PerspectiveCamera|PerspectiveCamera}
    */
   getCamera() {

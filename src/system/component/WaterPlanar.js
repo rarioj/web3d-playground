@@ -8,12 +8,6 @@ import { Water } from "three/addons/objects/Water2.js";
  */
 class WaterPlanar {
   /**
-   * Plane geometry instance.
-   * @type {PlaneGeometry}
-   */
-  #geometry;
-
-  /**
    * Water object instance.
    * @type {Water}
    */
@@ -64,9 +58,7 @@ class WaterPlanar {
       throw "Argument 'normalMap1' is not an instance of Three.js Texture";
     }
 
-    this.#geometry = new PlaneGeometry(width, height);
-
-    this.#water = new Water(this.#geometry, {
+    this.#water = new Water(new PlaneGeometry(width, height), {
       color,
       textureWidth,
       textureHeight,
@@ -79,12 +71,13 @@ class WaterPlanar {
       normalMap0,
       normalMap1,
     });
+
     this.#water.rotation.x = Math.PI * -0.5;
   }
 
   /**
    * Returns the water object instance.
-   * @returns {Water}
+   * @returns {Water} Water object instance.
    */
   getWater() {
     return this.#water;

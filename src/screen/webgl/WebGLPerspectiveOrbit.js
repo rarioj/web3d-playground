@@ -44,7 +44,7 @@ class WebGLPerspectiveOrbit extends WebGLPerspective {
 
   /**
    * Returns the controls object instance.
-   * @returns {OrbitControls}
+   * @returns {OrbitControls} Controls object instance.
    * @see {@link https://threejs.org/docs/#examples/en/controls/OrbitControls|OrbitControls}
    */
   getControls() {
@@ -59,7 +59,6 @@ class WebGLPerspectiveOrbit extends WebGLPerspective {
     this.#orbitControlsUpdateIndex = this.addScreenUpdateEvent((delta) =>
       this.#controls.update(delta)
     );
-    // this.#controls.listenToKeyEvents(window);
   }
 
   /**
@@ -68,7 +67,6 @@ class WebGLPerspectiveOrbit extends WebGLPerspective {
   disableOrbitControls() {
     this.#controls.enabled = false;
     this.removeScreenUpdateEvent(this.#orbitControlsUpdateIndex);
-    // this.#controls.stopListenToKeyEvents();
   }
 }
 

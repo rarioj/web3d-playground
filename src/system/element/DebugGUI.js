@@ -23,7 +23,7 @@ class DebugGUI {
 
   /**
    * Returns the GUI object instance.
-   * @returns {GUI}
+   * @returns {GUI} GUI object instance.
    */
   getInstance() {
     return this.#instance;

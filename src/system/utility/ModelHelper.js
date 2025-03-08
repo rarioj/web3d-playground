@@ -23,7 +23,7 @@ class ModelHelper {
   /**
    * Gets all child meshes from a given model.
    * @param {Object} model 3D object model.
-   * @returns {Mesh[]}
+   * @returns {Mesh[]} Array of mesh objects.
    */
   static getMeshes(model) {
     const meshes = [];

@@ -1,7 +1,5 @@
 # Web3D Playground ▸ Setup
 
-> Local environment setup.
-
 ## Web Server
 
 This playground requires a minimal setup without additional JavaScript local tools (no `node_modules`). The `index.html` file must be served under an HTTP server. Some features will not work using the standard file protocol, so a web server is needed.

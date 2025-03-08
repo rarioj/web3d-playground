@@ -131,7 +131,7 @@ class WebGL {
 
   /**
    * Returns the registry object instance.
-   * @returns {Map}
+   * @returns {Map} Registry object instance.
    * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map|Map}
    */
   getRegistry() {
@@ -140,7 +140,7 @@ class WebGL {
 
   /**
    * Returns the WebGL renderer object instance.
-   * @returns {WebGLRenderer}
+   * @returns {WebGLRenderer} WebGL renderer object instance.
    * @see {@link https://threejs.org/docs/#api/en/renderers/WebGLRenderer|WebGLRenderer}
    */
   getRenderer() {
@@ -149,7 +149,7 @@ class WebGL {
 
   /**
    * Returns the canvas element.
-   * @returns {HTMLCanvasElement}
+   * @returns {HTMLCanvasElement} Canvas HTML element.
    */
   getCanvas() {
     return this.#renderer.domElement;
@@ -157,7 +157,7 @@ class WebGL {
 
   /**
    * Returns the timer object instance.
-   * @returns {Timer}
+   * @returns {Timer} Timer object instance.
    */
   getTimer() {
     return this.#timer;
@@ -165,7 +165,7 @@ class WebGL {
 
   /**
    * Returns the scene object instance.
-   * @returns {Scene}
+   * @returns {Scene} Scene object instance.
    * @abstract
    */
   getScene() {
@@ -174,7 +174,7 @@ class WebGL {
 
   /**
    * Returns the camera object instance.
-   * @returns {Camera}
+   * @returns {Camera} Camera object instance.
    * @abstract
    */
   getCamera() {
@@ -183,7 +183,7 @@ class WebGL {
 
   /**
    * Returns the calculated canvas width.
-   * @returns {number}
+   * @returns {number} Canvas width.
    */
   getWidth() {
     const width = this.#width;
@@ -192,7 +192,7 @@ class WebGL {
 
   /**
    * Returns the calculated canvas height.
-   * @returns {number}
+   * @returns {number} Canvas height.
    */
   getHeight() {
     const height = this.#height;
@@ -201,7 +201,7 @@ class WebGL {
 
   /**
    * Returns the canvas aspect ratio.
-   * @returns {number}
+   * @returns {number} Canvas aspect ratio.
    */
   getAspect() {
     return this.getWidth() / this.getHeight();
@@ -209,7 +209,7 @@ class WebGL {
 
   /**
    * Returns the time difference between now and the last render update.
-   * @returns {number}
+   * @returns {number} Delta time.
    */
   getDeltaTime() {
     return this.#deltaTime;
@@ -217,7 +217,7 @@ class WebGL {
 
   /**
    * Returns the time elapsed since the first render update.
-   * @returns {number}
+   * @returns {number} Elapsed time.
    */
   getElapsedTime() {
     return this.#elapsedTime;
@@ -225,7 +225,7 @@ class WebGL {
 
   /**
    * Returns whether the screen is responsive.
-   * @returns {boolean}
+   * @returns {boolean} Whether the screen is responsive.
    */
   isResponsive() {
     const width = this.#width;
@@ -251,7 +251,7 @@ class WebGL {
   /**
    * Registers a new screen-resize event.
    * @param {ScreenResizeCallback} callback Screen-resize event callback.
-   * @returns {string}
+   * @returns {string} Screen-resize callback ID.
    */
   addScreenResizeEvent(callback) {
     const index = MathUtils.generateUUID();
@@ -283,7 +283,7 @@ class WebGL {
   /**
    * Registers a new screen-update event.
    * @param {ScreenUpdateCallback} callback Screen-update event callback.
-   * @returns {string}
+   * @returns {string} Screen-update callback ID.
    */
   addScreenUpdateEvent(callback) {
     const index = MathUtils.generateUUID();

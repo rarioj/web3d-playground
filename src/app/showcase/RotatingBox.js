@@ -31,8 +31,14 @@ class RotatingBox extends WebGLPerspectiveOrbit {
       box.rotation.z += delta;
     });
 
-    const registry = this.getRegistry();
-    const notification = registry.get("notification");
+    this.showAppInfo();
+  }
+
+  /**
+   * Shows the app information.
+   */
+  showAppInfo() {
+    const notification = this.getRegistry().get("notification");
     notification.notice("<strong>Rotating Box</strong>");
     notification.notice(
       "A simple 3D cube with basic color material on each side."

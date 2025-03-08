@@ -111,24 +111,7 @@ class OldComputer extends WebGLPerspectiveOrbit {
       );
     }
 
-    const notification = registry.get("notification");
-    notification.notice("<strong>Old Computer</strong>");
-    notification.notice(
-      "A glTF model of an old computer. It's a functioning computer, too. What can be rendered on the monitor screen?"
-    );
-    notification.notice(
-      "Textures — [Aerodynamics Workshop](https://polyhaven.com/a/aerodynamics_workshop)"
-    );
-    notification.notice("3D Model — [IBM 3178](https://skfb.ly/6XWzr)");
-    notification.notice(
-      "Random Images — [Lorem Picsum](https://picsum.photos/)"
-    );
-    notification.notice(
-      "Game — [Prince of Persia (1989)](https://dos.zone/prince-of-persia-1990/)"
-    );
-    notification.notice(
-      "Video — [Rick Rolled (Short Version)](https://www.youtube.com/watch?v=BBJa32lCaaY)"
-    );
+    this.showAppInfo();
   }
 
   /**
@@ -222,7 +205,7 @@ class OldComputer extends WebGLPerspectiveOrbit {
 
   /**
    * Creates a video player element.
-   * @returns {HTMLVideoElement}
+   * @returns {HTMLVideoElement} Video player HTML element.
    */
   createVideo() {
     const video = document.createElement("video");
@@ -272,6 +255,30 @@ class OldComputer extends WebGLPerspectiveOrbit {
     gui.add(operations, "image").name("Show Random Image");
     gui.add(operations, "game").name("Play Game");
     gui.add(operations, "video").name("Play Video");
+  }
+
+  /**
+   * Shows the app information.
+   */
+  showAppInfo() {
+    const notification = this.getRegistry().get("notification");
+    notification.notice("<strong>Old Computer</strong>");
+    notification.notice(
+      "A glTF model of an old computer. It's a functioning computer, too. What can be rendered on the monitor screen?"
+    );
+    notification.notice(
+      "Textures — [Aerodynamics Workshop](https://polyhaven.com/a/aerodynamics_workshop)"
+    );
+    notification.notice("3D Model — [IBM 3178](https://skfb.ly/6XWzr)");
+    notification.notice(
+      "Random Images — [Lorem Picsum](https://picsum.photos/)"
+    );
+    notification.notice(
+      "Game — [Prince of Persia (1989)](https://dos.zone/prince-of-persia-1990/)"
+    );
+    notification.notice(
+      "Video — [Rick Rolled (Short Version)](https://www.youtube.com/watch?v=BBJa32lCaaY)"
+    );
   }
 }
 

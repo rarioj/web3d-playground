@@ -27,7 +27,7 @@ class DebugStats {
 
   /**
    * Returns the Stats object instance.
-   * @returns {Stats}
+   * @returns {Stats} Stats object instance.
    */
   getInstance() {
     return this.#instance;

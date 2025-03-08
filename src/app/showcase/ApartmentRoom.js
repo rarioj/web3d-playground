@@ -280,15 +280,7 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
       }
     });
 
-    const notification = registry.get("notification");
-    notification.notice("<strong>Apartment Room</strong>");
-    notification.notice(
-      "A tour of a simple apartment room. Demonstrates switching between Orbit and PointerLock controls. Uses the Rapier 3D physics engine for wall collision detection. PositionalAudio for spatial sound experience. Reflection on bathroom mirrors. [Desktop only]"
-    );
-    notification.notice("3D Model — [Apartment plan](https://skfb.ly/oPnHH)");
-    notification.notice(
-      "Video — [WALL-E Intro](https://www.youtube.com/watch?v=nLx_7wEmwms)"
-    );
+    this.showAppInfo();
   }
 
   /**
@@ -316,21 +308,21 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
 
   /**
    * Returns collision detection lines (for debugging purposes).
-   * @returns {Mesh}
+   * @returns {LineSegments} Collision detection line segments.
    */
   getCollisionDetectionLines() {
     const { vertices, colors } = this.#physics.debugRender();
 
-    const mesh = new LineSegments(
+    const lines = new LineSegments(
       new BufferGeometry(),
       new LineBasicMaterial({ color: 0xffffff, vertexColors: true })
     );
 
-    mesh.frustumCulled = false;
-    mesh.geometry.setAttribute("position", new BufferAttribute(vertices, 3));
-    mesh.geometry.setAttribute("color", new BufferAttribute(colors, 4));
+    lines.frustumCulled = false;
+    lines.geometry.setAttribute("position", new BufferAttribute(vertices, 3));
+    lines.geometry.setAttribute("color", new BufferAttribute(colors, 4));
 
-    return mesh;
+    return lines;
   }
 
   /**
@@ -365,6 +357,23 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
     positionalAudio.setRefDistance(1);
     positionalAudio.setDirectionalCone(180, 230, 0.1);
     television.add(positionalAudio);
+  }
+
+  /**
+   * Shows the app information.
+   */
+  showAppInfo() {
+    const notification = this.getRegistry().get("notification");
+    notification.notice("<strong>Apartment Room</strong>");
+    notification.notice(
+      "A tour of a simple apartment room. Demonstrates switching between Orbit and PointerLock controls. Uses the Rapier 3D physics engine for wall collision detection. PositionalAudio for spatial sound experience. Reflection on bathroom mirrors. [Desktop only]"
+    );
+    notification.notice(
+      "3D Model — [Apartment plan](https://skfb.ly/oPnHH) | [Happy Drone](https://skfb.ly/ozI6J)"
+    );
+    notification.notice(
+      "Video — [WALL-E Intro](https://www.youtube.com/watch?v=nLx_7wEmwms)"
+    );
   }
 }
 

@@ -256,7 +256,7 @@ class StoneMonument extends WebGLPerspectiveOrbit {
     directionalLight.shadow.camera.far = 128;
     scene.add(directionalLight);
 
-    this.addScreenUpdateEvent(skyCube.getScreenUpdateCallback(5));
+    this.addScreenUpdateEvent(skyCube.getScreenUpdateSunElevation(5));
 
     const firefly1 = new PointLight(0xff8888, 15);
     firefly1.castShadow = true;
@@ -307,7 +307,14 @@ class StoneMonument extends WebGLPerspectiveOrbit {
       firefly3.intensity = Math.max(0, factor * 15);
     });
 
-    const notification = registry.get("notification");
+    this.showAppInfo();
+  }
+
+  /**
+   * Shows the app information.
+   */
+  showAppInfo() {
+    const notification = this.getRegistry().get("notification");
     notification.notice("<strong>Stone Monument</strong>");
     notification.notice(
       "An implementation of basic geometries with standard textured materials casting shadows from the rising and setting sunlight."
