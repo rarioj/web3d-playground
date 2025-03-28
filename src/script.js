@@ -1,4 +1,4 @@
-(() => {
+((query) => {
   const version = {
     threejs: "0.174.0",
     emulators: "8.3.3",
@@ -7,7 +7,18 @@
     rapier3d: "0.14.0",
   };
 
-  const query = Object.fromEntries(new URL(location).searchParams);
+  const addImportMap = (map) => {
+    const script = document.createElement("script");
+    script.type = "importmap";
+    script.textContent = JSON.stringify({ imports: { ...map } });
+    document.currentScript.after(script);
+  };
+
+  const addScript = (src) => {
+    const script = document.createElement("script");
+    script.src = src;
+    document.head.appendChild(script);
+  };
 
   const map = {};
   map[
@@ -23,24 +34,20 @@
     ] = `https://cdn.jsdelivr.net/npm/@dimforge/rapier3d-compat@${version.rapier3d}/rapier.es.min.js`;
   }
 
-  const importmap = document.createElement("script");
-  importmap.type = "importmap";
-  importmap.textContent = JSON.stringify({ imports: { ...map } });
-  document.currentScript.after(importmap);
+  addImportMap(map);
 
   if (query?.emulators) {
-    const emulatorsScript = document.createElement("script");
-    emulatorsScript.src = `https://cdn.jsdelivr.net/npm/emulators@${version.emulators}/dist/emulators.min.js`;
-    document.head.appendChild(emulatorsScript);
-
-    const emulatorsUiScript = document.createElement("script");
-    emulatorsUiScript.src = `https://cdn.jsdelivr.net/npm/emulators-ui@${version.emulatorsUi}/dist/emulators-ui.min.js`;
-    document.head.appendChild(emulatorsUiScript);
+    addScript(
+      `https://cdn.jsdelivr.net/npm/emulators@${version.emulators}/dist/emulators.min.js`
+    );
+    addScript(
+      `https://cdn.jsdelivr.net/npm/emulators-ui@${version.emulatorsUi}/dist/emulators-ui.min.js`
+    );
   }
 
   if (query?.gsap) {
-    const gsapScript = document.createElement("script");
-    gsapScript.src = `https://cdn.jsdelivr.net/npm/gsap@${version.gsap}/dist/gsap.min.js`;
-    document.head.appendChild(gsapScript);
+    addScript(
+      `https://cdn.jsdelivr.net/npm/gsap@${version.gsap}/dist/gsap.min.js`
+    );
   }
-})();
+})(Object.fromEntries(new URL(location).searchParams));

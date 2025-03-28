@@ -30,7 +30,7 @@ import ModelHelper from "../../system/utility/ModelHelper.js";
  * A tour of a simple apartment room. Demonstrates switching between Orbit and
  *    PointerLock controls. Uses the Rapier 3D physics engine for wall collision
  *    detection. PositionalAudio for spatial sound experience. Reflection on
- *    bathroom mirrors. [Desktop only]
+ *    bathroom mirrors. For desktop only.
  * @memberof module:App
  * @extends module:Screen.WebGLPerspectiveOrbit
  */
@@ -366,7 +366,7 @@ class ApartmentRoom extends WebGLPerspectiveOrbit {
     const notification = this.getRegistry().get("notification");
     notification.notice("<strong>Apartment Room</strong>");
     notification.notice(
-      "A tour of a simple apartment room. Demonstrates switching between Orbit and PointerLock controls. Uses the Rapier 3D physics engine for wall collision detection. PositionalAudio for spatial sound experience. Reflection on bathroom mirrors. [Desktop only]"
+      "A tour of a simple apartment room. Demonstrates switching between Orbit and PointerLock controls. Uses the Rapier 3D physics engine for wall collision detection. PositionalAudio for spatial sound experience. Reflection on bathroom mirrors. For desktop only."
     );
     notification.notice(
       "3D Model — [Apartment plan](https://skfb.ly/oPnHH) | [Happy Drone](https://skfb.ly/ozI6J)"

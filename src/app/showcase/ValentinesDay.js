@@ -11,8 +11,7 @@ import WebGLPerspectiveOrbit from "../../screen/webgl/WebGLPerspectiveOrbit.js";
 import Loader from "../../system/utility/Loader.js";
 
 /**
- * A text geometry, a heart-shaped extruded geometry, for a Valentine's Day
- *    special.
+ * A text geometry, a heart-shaped extruded geometry, for Valentine's Day.
  * @memberof module:App
  * @extends module:Screen.WebGLPerspectiveOrbit
  */
@@ -113,7 +112,7 @@ class ValentinesDay extends WebGLPerspectiveOrbit {
     const notification = this.getRegistry().get("notification");
     notification.notice("<strong>Valentine's Day</strong>");
     notification.notice(
-      "A text geometry, a heart-shaped extruded geometry, for a Valentine's Day special."
+      "A text geometry, a heart-shaped extruded geometry, for Valentine's Day."
     );
     notification.notice(
       "Font — [Courgette](https://fonts.google.com/specimen/Courgette) by Karolina Lach"

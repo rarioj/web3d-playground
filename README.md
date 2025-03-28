@@ -1,4 +1,4 @@
-# Web3D Playground ▸ Readme
+# Web3D Playground
 
 > Personal Web3D experimentation and learning space.
 
