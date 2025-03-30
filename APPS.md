@@ -16,9 +16,10 @@
 
 ## Webpages
 
-| Name                                                                                                                                            | Thumbnail                                             |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| [Car Showroom](./app-CarShowroom.html?app=7&gsap=1) ~ A prototype of a web page on top of a WebGL canvas scene rendering three glTF car models. | ![Car Showroom](./public/screenshot/CarShowroom.webp) |
+| Name                                                                                                                                            | Thumbnail                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| [Car Showroom](./app-CarShowroom.html?app=7&gsap=1) ~ A prototype of a web page on top of a WebGL canvas scene rendering three glTF car models. | ![Car Showroom](./public/screenshot/CarShowroom.webp)       |
+| [Ramadan Journey](./app-RamadanJourney.html?app=10&gsap=1) ~ Eid al-Fitr marks the end of the month-long dawn-to-dusk fasting of Ramadan.       | ![Ramadan Journey](./public/screenshot/RamadanJourney.webp) |
 
 ### Credits & Attributions
 
@@ -44,3 +45,5 @@
 - [WALL-E Intro](https://www.youtube.com/watch?v=nLx_7wEmwms) from YouTube.
 - [Cave](https://skfb.ly/onVnO) by Valsev is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
 - [Abimanyu Pralaya](https://skfb.ly/oYoKA) | [Kuwera Punia](https://skfb.ly/oWOqF) | [Rahwana](https://skfb.ly/oYvVN) | [Ogoh Ogoh Anungkap](https://skfb.ly/oYowI) | [Narashima Avatara](https://skfb.ly/oYvXC) | [Kalau Rau Besar](https://skfb.ly/oWOqu) by agusputradirgantara is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
+- [Shah Alam, Blue Mosque](https://skfb.ly/Yw6E) by Dolores is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
+- [Rocky Terrain 02](https://polyhaven.com/a/rocky_terrain_02) from Poly Haven.

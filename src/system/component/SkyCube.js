@@ -89,10 +89,13 @@ class SkyCube {
       rayleigh,
       mieCoefficient,
       mieDirectionalG,
+      oldElevation: elevation,
       elevation,
       azimuth,
       intensity,
       distance,
+      dayCount: 0,
+      nightCount: 0,
     };
 
     this.setSunPosition(elevation, azimuth);
@@ -165,9 +168,14 @@ class SkyCube {
    */
   getScreenUpdateSunElevation(speed = 3) {
     return (delta) => {
+      this.#state.oldElevation = this.#state.elevation;
       this.#state.elevation += delta * speed;
       if (this.#state.elevation > 180) {
         this.#state.elevation = -180;
+        this.#state.nightCount++;
+      }
+      if (this.#state.elevation >= 0 && this.#state.oldElevation < 0) {
+        this.#state.dayCount++;
       }
       this.setSunPosition(this.#state.elevation, this.#state.azimuth);
     };

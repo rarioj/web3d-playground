@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+}
+
+.header {
+  background-color: red;
+  height: 2px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 0;
+  z-index: 1;
+}
+
+main {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+canvas {
+  left: 0;
+  position: fixed;
+  top: 0;
+  z-index: 0;
+}
+
+h1 {
+  font-family: cursive;
+  font-size: 2.4em;
+}
+
+h2 {
+  font-family: sans-serif;
+  font-size: 1.2em;
+}
+
+p {
+  bottom: 0;
+  font-family: serif;
+  font-size: 1.2em;
+  max-width: 400px;
+  padding: 1em 0;
+  position: absolute;
+}
+
+section {
+  align-items: center;
+  color: white;
+  height: 100vh;
+  overflow-y: scroll;
+  position: relative;
+  scroll-snap-align: center;
+  text-shadow: 0.2em 0.2em 0.2em gray;
+  z-index: 2;
+}
+
+section div {
+  padding: 0.5em 1em;
+}

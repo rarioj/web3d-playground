@@ -13,4 +13,5 @@ export default [
   "page/CarShowroom.js", // 7
   "showcase/ApartmentRoom.js", // 8
   "showcase/EveOfSilence.js", // 9
+  "page/RamadanJourney.js", // 10
 ];
