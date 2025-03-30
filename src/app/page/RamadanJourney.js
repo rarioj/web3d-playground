@@ -5,6 +5,7 @@ import {
   PCFSoftShadowMap,
   PlaneGeometry,
   PointLight,
+  RGBA_ASTC_4x4_Format,
   SRGBColorSpace,
 } from "three";
 import WebGLPerspectiveOrbit from "../../screen/webgl/WebGLPerspectiveOrbit.js";
@@ -28,7 +29,7 @@ class RamadanJourney extends WebGLPerspectiveOrbit {
     cameraPerspectiveFov: 45,
     cameraPerspectiveNear: 0.1,
     cameraPerspectiveFar: 128,
-    cameraPosition: [10, 12, 6],
+    cameraPosition: [6, 6, 6],
     controlsOrbitParameters: {
       enableDamping: true,
       autoRotate: true,
@@ -199,7 +200,7 @@ class RamadanJourney extends WebGLPerspectiveOrbit {
           appMessage.innerText =
             "Eid Mubarak to you and your family! May this Eid bring endless blessings and strengthen your faith.";
           this.removeScreenUpdateEvent(updateIndex);
-          gsap.to(camera.position, { duration: 1, y: 2, z: 1 });
+          gsap.to(camera.position, { duration: 3, x: 8, y: 2, z: 8 });
           gsap.to(models.mosque.scene.position, { duration: 1, y: 2 });
           point1.intensity = nightLightIntensity;
           point2.intensity = nightLightIntensity;
@@ -211,19 +212,19 @@ class RamadanJourney extends WebGLPerspectiveOrbit {
             updateIndex = this.addScreenUpdateEvent(
               skyCube.getScreenUpdateSunElevation(dayNightSpeed * 2)
             );
-            gsap.to(camera.position, { duration: 1, y: 10, z: 14 });
+            gsap.to(camera.position, { duration: 3, x: 8, y: 5, z: 8 });
           } else if (currentDay === 10) {
             this.removeScreenUpdateEvent(updateIndex);
             updateIndex = this.addScreenUpdateEvent(
               skyCube.getScreenUpdateSunElevation(dayNightSpeed * 4)
             );
-            gsap.to(camera.position, { duration: 1, y: 8, z: 16 });
+            gsap.to(camera.position, { duration: 2, x: 10, y: 4, z: 10 });
           } else if (currentDay === 15) {
             this.removeScreenUpdateEvent(updateIndex);
             updateIndex = this.addScreenUpdateEvent(
               skyCube.getScreenUpdateSunElevation(dayNightSpeed * 8)
             );
-            gsap.to(camera.position, { duration: 1, y: 6, z: 18 });
+            gsap.to(camera.position, { duration: 1, x: 12, y: 3, z: 12 });
           } else if (currentDay === totalRamadanDays - 2) {
             this.removeScreenUpdateEvent(updateIndex);
             updateIndex = this.addScreenUpdateEvent(

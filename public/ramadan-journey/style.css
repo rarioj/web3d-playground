@@ -14,6 +14,27 @@ canvas {
   z-index: 0;
 }
 
+section {
+  color: white;
+  text-shadow: 0.2em 0.2em 0.2em gray;
+}
+
+section header {
+  left: 0;
+  padding: 0.5em 1em;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+section footer {
+  bottom: 0;
+  left: 0;
+  padding: 0.5em 1em;
+  position: fixed;
+  z-index: 1;
+}
+
 h1 {
   font-family: cursive;
   font-size: 2.4em;
@@ -25,26 +46,7 @@ h2 {
 }
 
 p {
-  color: white;
   font-family: serif;
   font-size: 1.2em;
   max-width: 400px;
-  padding: 2em 0;
-  z-index: 3;
-  position: absolute;
-  bottom: 0;
-}
-
-section {
-  align-items: center;
-  color: white;
-  height: 100vh;
-  overflow-y: hidden;
-  position: relative;
-  text-shadow: 0.2em 0.2em 0.2em gray;
-  z-index: 2;
-}
-
-section div {
-  padding: 0.5em 1em;
 }
