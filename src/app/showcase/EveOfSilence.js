@@ -1,4 +1,4 @@
-import { PCFSoftShadowMap, PointLight, SpotLight, Vector3 } from "three";
+import { PCFSoftShadowMap, PointLight } from "three";
 import WebGLPerspectiveFirstPerson from "../../screen/webgl/WebGLPerspectiveFirstPerson.js";
 import Loader from "../../system/utility/Loader.js";
 import ModelHelper from "../../system/utility/ModelHelper.js";
@@ -21,7 +21,7 @@ class EveOfSilence extends WebGLPerspectiveFirstPerson {
     cameraPerspectiveFov: 45,
     cameraPerspectiveNear: 0.1,
     cameraPerspectiveFar: 15000,
-    cameraPosition: [870, 1120, 6240],
+    cameraPosition: [850, 1100, 5800],
     controlsFirstPersonParameters: {
       lookSpeed: 0.05,
       movementSpeed: 500,
@@ -43,12 +43,12 @@ class EveOfSilence extends WebGLPerspectiveFirstPerson {
     const loader = new Loader(registry);
     const path = "./public/eve-of-silence/gltf";
 
-    const light = new PointLight(0xfbfdf9, 5, 4096, 0.0005);
+    const light = new PointLight(0xfbfdf9, 7.5, 2048, 0.0005);
     light.castShadow = true;
-    light.shadow.mapSize.width = 4096;
-    light.shadow.mapSize.height = 4096;
-    light.shadow.camera.near = 10;
-    light.shadow.camera.far = 4096;
+    light.shadow.mapSize.width = 512;
+    light.shadow.mapSize.height = 512;
+    light.shadow.camera.near = 0.1;
+    light.shadow.camera.far = 2048;
     camera.add(light);
     scene.add(camera);
 

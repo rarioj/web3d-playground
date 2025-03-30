@@ -1,10 +1,10 @@
 ((query) => {
   const version = {
-    threejs: "0.174.0",
+    threejs: "0.175.0",
     emulators: "8.3.3",
     emulatorsUi: "0.73.9",
     gsap: "3.12.7",
-    rapier3d: "0.14.0",
+    rapier3d: "0.15.0",
   };
 
   const addImportMap = (map) => {
