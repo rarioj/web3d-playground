@@ -38,6 +38,8 @@ class RotatingBox extends WebGLPerspectiveOrbit {
    * Shows the app information.
    */
   showAppInfo() {
+    const query = this.getRegistry().get("query");
+    if (Boolean(query?.noinfo)) return;
     const notification = this.getRegistry().get("notification");
     notification.notice("<strong>Rotating Box</strong>");
     notification.notice(

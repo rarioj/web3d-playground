@@ -27,8 +27,8 @@ class RamadanJourney extends WebGLPerspectiveOrbit {
   static options = {
     cameraPerspectiveFov: 45,
     cameraPerspectiveNear: 0.1,
-    cameraPerspectiveFar: 32,
-    cameraPosition: [10, 12, 12],
+    cameraPerspectiveFar: 128,
+    cameraPosition: [10, 12, 6],
     controlsOrbitParameters: {
       enableDamping: true,
       autoRotate: true,
@@ -199,7 +199,7 @@ class RamadanJourney extends WebGLPerspectiveOrbit {
           appMessage.innerText =
             "Eid Mubarak to you and your family! May this Eid bring endless blessings and strengthen your faith.";
           this.removeScreenUpdateEvent(updateIndex);
-          gsap.to(camera.position, { duration: 1, y: 2, z: 2 });
+          gsap.to(camera.position, { duration: 1, y: 2, z: 1 });
           gsap.to(models.mosque.scene.position, { duration: 1, y: 2 });
           point1.intensity = nightLightIntensity;
           point2.intensity = nightLightIntensity;
@@ -211,19 +211,19 @@ class RamadanJourney extends WebGLPerspectiveOrbit {
             updateIndex = this.addScreenUpdateEvent(
               skyCube.getScreenUpdateSunElevation(dayNightSpeed * 2)
             );
-            gsap.to(camera.position, { duration: 1, y: 10, z: 10 });
+            gsap.to(camera.position, { duration: 1, y: 10, z: 14 });
           } else if (currentDay === 10) {
             this.removeScreenUpdateEvent(updateIndex);
             updateIndex = this.addScreenUpdateEvent(
               skyCube.getScreenUpdateSunElevation(dayNightSpeed * 4)
             );
-            gsap.to(camera.position, { duration: 1, y: 8, z: 8 });
+            gsap.to(camera.position, { duration: 1, y: 8, z: 16 });
           } else if (currentDay === 15) {
             this.removeScreenUpdateEvent(updateIndex);
             updateIndex = this.addScreenUpdateEvent(
               skyCube.getScreenUpdateSunElevation(dayNightSpeed * 8)
             );
-            gsap.to(camera.position, { duration: 1, y: 6, z: 6 });
+            gsap.to(camera.position, { duration: 1, y: 6, z: 18 });
           } else if (currentDay === totalRamadanDays - 2) {
             this.removeScreenUpdateEvent(updateIndex);
             updateIndex = this.addScreenUpdateEvent(
@@ -247,6 +247,8 @@ class RamadanJourney extends WebGLPerspectiveOrbit {
    * Shows the app information.
    */
   showAppInfo() {
+    const query = this.getRegistry().get("query");
+    if (Boolean(query?.noinfo)) return;
     const notification = this.getRegistry().get("notification");
     notification.notice("<strong>Ramadan Journey</strong>");
     notification.notice(

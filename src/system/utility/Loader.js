@@ -61,8 +61,7 @@ class Loader {
       const percent = Math.floor((loaded / total) * 100);
       alert.progress(`[${percent}%] Loading: ${basename}`, percent);
     };
-    DefaultLoadingManager.onLoad = () =>
-      alert.progress("[100%] Loading: Complete");
+    DefaultLoadingManager.onLoad = () => alert.hide();
     DefaultLoadingManager.onProgress = (url, loaded, total) => {
       const basename = url.split("/").pop();
       const percent = Math.floor((loaded / total) * 100);

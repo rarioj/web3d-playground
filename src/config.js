@@ -5,6 +5,7 @@ export default {
     // expose: 0,
     // gui: 0,
     // stats: 0,
+    // noinfo: 0,
   },
 
   /* System configuration */

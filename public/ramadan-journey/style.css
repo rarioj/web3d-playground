@@ -7,22 +7,6 @@ body {
   background-color: black;
 }
 
-.header {
-  background-color: red;
-  height: 2px;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 0;
-  z-index: 1;
-}
-
-main {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-}
-
 canvas {
   left: 0;
   position: fixed;
@@ -41,21 +25,22 @@ h2 {
 }
 
 p {
-  bottom: 0;
+  color: white;
   font-family: serif;
   font-size: 1.2em;
   max-width: 400px;
-  padding: 1em 0;
+  padding: 2em 0;
+  z-index: 3;
   position: absolute;
+  bottom: 0;
 }
 
 section {
   align-items: center;
   color: white;
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: hidden;
   position: relative;
-  scroll-snap-align: center;
   text-shadow: 0.2em 0.2em 0.2em gray;
   z-index: 2;
 }

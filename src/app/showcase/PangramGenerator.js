@@ -196,6 +196,8 @@ class PangramGenerator extends WebGLPerspectiveOrbit {
    * Shows the app information.
    */
   showAppInfo() {
+    const query = this.getRegistry().get("query");
+    if (Boolean(query?.noinfo)) return;
     const notification = this.getRegistry().get("notification");
     notification.notice("<strong>Pangram Generator</strong>");
     notification.notice(
