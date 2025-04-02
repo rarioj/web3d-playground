@@ -5,7 +5,6 @@ import {
   PCFSoftShadowMap,
   PlaneGeometry,
   PointLight,
-  RGBA_ASTC_4x4_Format,
   SRGBColorSpace,
 } from "three";
 import WebGLPerspectiveOrbit from "../../screen/webgl/WebGLPerspectiveOrbit.js";
@@ -72,7 +71,7 @@ class RamadanJourney extends WebGLPerspectiveOrbit {
     });
 
     ModelHelper.setShadow(models.mosque);
-    models.mosque.scene.position.y = 1.25;
+    models.mosque.scene.position.y = 1.35;
     models.mosque.scene.scale.setScalar(1);
     scene.add(models.mosque.scene);
 
@@ -173,7 +172,7 @@ class RamadanJourney extends WebGLPerspectiveOrbit {
 
     let currentDay = 0;
     let currentDate = new Date(startDateTime);
-    this.addScreenUpdateEvent((delta, elapsed) => {
+    this.addScreenUpdateEvent(() => {
       const skyCubeState = skyCube.getState();
       const factor = Math.sin(MathUtils.degToRad(skyCubeState?.elevation)) * -1;
       if (currentDay <= totalRamadanDays) {
